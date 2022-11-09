@@ -24,3 +24,57 @@ a {
     background: black;
   }
 }
+
+.custom-menu {
+  background-color: #242424 !important;
+  height: 70px;
+}
+
+.custom-menu .ant-menu-item-selected {
+  background-color: #000 !important;
+}
+
+.custom-menu .ant-menu-item {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.custom-menu .ant-menu-item-selected::before {
+  content: "";
+  border-style: solid;
+  border-width: 0 6px 6px;
+  border-color: transparent transparent #c20c0c;
+  position: absolute;
+  bottom: 1px;
+  left: calc(50% - 6px);
+}
+
+.custom-menu .ant-menu-item-active {
+  background-color: #000 !important;
+}
+
+.custom-sub-menu {
+  background-color: transparent !important;
+  height: 25px !important;
+  border: none !important;
+  color: #fff !important;
+  font-size: 12px !important;
+  border-radius: 20px;
+}
+
+.custom-sub-menu .ant-menu-item-selected {
+  background-color: #9b0909 !important;
+  border-radius: 20px;
+  padding: 18px 20px;
+}
+
+.custom-sub-menu .ant-menu-item-active {
+  background-color: #9b0909 !important;
+  border-radius: 20px;
+  padding: 18px 20px;
+}
+
+.custom-sub-menu .ant-menu-item {
+  display: flex !important;
+  align-items: center !important;
+}
