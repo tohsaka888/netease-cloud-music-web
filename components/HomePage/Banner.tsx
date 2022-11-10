@@ -3,55 +3,17 @@ import { Carousel } from "antd";
 import React, { CSSProperties, useRef, useState } from "react";
 import { useMemo } from "react";
 import Image from "next/image";
-import { useResponsive } from "ahooks";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { CarouselRef } from "antd/lib/carousel";
+import useHomePageStyles from "hooks/styles/useHomePageStyles";
 
 function Banner() {
   const { data } = useBanner();
   const banners = useMemo(() => data?.banners || [], [data]);
-  const responsive = useResponsive();
   const carouselRef = useRef<CarouselRef>(null!);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-
-  // responsive styles
-  const styles = useMemo(() => {
-    const styles: Record<string, CSSProperties> = {
-      imageStyle: {
-        width: "730px",
-        height: `${730 * 0.38}px`,
-      },
-      downloadStyle: {
-        display: "block",
-        width: "253px",
-      },
-      arrowStyle: {
-        opacity: 1,
-      },
-    };
-    if (responsive) {
-      if (responsive.xl) {
-        styles.imageStyle.width = "730px";
-      } else if (responsive.lg) {
-        styles.imageStyle.width = "600px";
-      } else if (responsive.md) {
-        styles.imageStyle.width = "680px";
-        styles.downloadStyle = {
-          display: "none",
-          width: "0px",
-        };
-      } else {
-        styles.imageStyle.width = "500px";
-        styles.arrowStyle.opacity = 0;
-        styles.downloadStyle = {
-          display: "none",
-          width: "0px",
-        };
-      }
-    }
-    return styles;
-  }, [responsive]);
+  const styles = useHomePageStyles();
 
   return (
     <motion.div
@@ -73,9 +35,9 @@ function Banner() {
     >
       <div
         style={{
-          width: "100vw",
+          width: "100%",
           position: "relative",
-          padding: `0px calc((100vw - ${styles.imageStyle.width} - ${styles.downloadStyle.width})/ 2)`,
+          padding: `0px calc((100% - ${styles.imageStyle.width} - ${styles.downloadStyle.width})/ 2)`,
           overflow: "hidden",
         }}
       >
@@ -85,8 +47,9 @@ function Banner() {
             ...styles.imageStyle,
           }}
           autoplay
-          autoplaySpeed={3000}
+          autoplaySpeed={5000}
           effect={"fade"}
+          easing={"easeInOutExpo"}
           ref={carouselRef}
           beforeChange={(current, next) => {
             setCurrentIndex(next);
@@ -97,7 +60,6 @@ function Banner() {
               key={banner.targetId}
               src={banner.imageUrl}
               alt={banner.imageUrl}
-              priority
               width={parseInt(styles.imageStyle.width as string)}
               height={parseInt(styles.imageStyle.height as string)}
               style={{
@@ -117,9 +79,18 @@ function Banner() {
             boxShadow: "0px 0px 50px 3px #333333",
             zIndex: 10,
             opacity: 1,
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "center",
             ...styles.downloadStyle,
           }}
-        />
+        >
+          <span
+            style={{ fontSize: "12px", color: "#8d8d8d", marginBottom: "8px" }}
+          >
+            PC 安卓 iPhone WP iPad Mac 六大客户端
+          </span>
+        </div>
       </div>
       <motion.div
         initial={{
