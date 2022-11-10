@@ -31,7 +31,7 @@ const styles: Record<
     ...initStyle,
     imageStyle: {
       ...initStyle.imageStyle,
-      width: "680px",
+      width: "730px",
     },
     downloadStyle: {
       display: "none",
@@ -41,8 +41,8 @@ const styles: Record<
   sm: {
     ...initStyle,
     imageStyle: {
-      ...initStyle.imageStyle,
-      width: "500px",
+      height: "250px",
+      width: "100%",
     },
     arrowStyle: {
       opacity: 0,
@@ -55,8 +55,8 @@ const styles: Record<
   xs: {
     ...initStyle,
     imageStyle: {
-      ...initStyle.imageStyle,
-      width: "500px",
+      width: "100%",
+      height: "200px",
     },
     arrowStyle: {
       opacity: 0,
