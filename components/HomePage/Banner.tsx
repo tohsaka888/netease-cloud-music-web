@@ -1,10 +1,9 @@
 import useBanner from "@services/useBanner";
 import { Carousel } from "antd";
-import React, { CSSProperties, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useMemo } from "react";
-import Image from "next/image";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
-import { motion } from "framer-motion";
+import { motion, TargetAndTransition } from "framer-motion";
 import { CarouselRef } from "antd/lib/carousel";
 import useHomePageStyles from "hooks/styles/useHomePageStyles";
 
@@ -18,19 +17,20 @@ function Banner() {
   return (
     <motion.div
       initial={{
-        width: "100vw",
-        height: styles.imageStyle.height,
+        width: "100%",
         position: "relative",
         background: `url(${
           banners[currentIndex].imageUrl + "?imageView&blur=40x20"
         })`,
         backgroundSize: "6000px",
         backgroundPosition: "center center",
+        height: styles.imageStyle.height,
       }}
       animate={{
         background: `url(${
           banners[currentIndex].imageUrl + "?imageView&blur=40x20"
         })`,
+        height: styles.imageStyle.height,
       }}
     >
       <div
@@ -56,12 +56,13 @@ function Banner() {
           }}
         >
           {banners.map((banner) => (
-            <Image
+            <motion.img
               key={banner.targetId}
               src={banner.imageUrl}
               alt={banner.imageUrl}
-              width={parseInt(styles.imageStyle.width as string)}
-              height={parseInt(styles.imageStyle.height as string)}
+              animate={{
+                ...(styles.imageStyle as TargetAndTransition),
+              }}
               style={{
                 boxShadow: "0px 0px 50px 3px #333333",
               }}
@@ -72,7 +73,7 @@ function Banner() {
           style={{
             position: "absolute",
             height: styles.imageStyle.height,
-            left: `calc((100vw - ${styles.imageStyle.width} - ${styles.downloadStyle.width})/ 2 + ${styles.imageStyle.width})`,
+            left: `calc((100% - ${styles.imageStyle.width} - ${styles.downloadStyle.width})/ 2 + ${styles.imageStyle.width})`,
             background:
               "url(https://s2.music.126.net/style/web2/img/index/download.png?5a1a8555a5ed4cc3f268392ace664ea8) no-repeat 0 0",
             top: "0px",
@@ -97,10 +98,10 @@ function Banner() {
           position: "absolute",
           top: "calc(50% - 24px)",
           cursor: "pointer",
-          left: `calc((100vw - ${styles.imageStyle.width} - ${styles.downloadStyle.width}) / 4)`,
+          left: `calc((100% - ${styles.imageStyle.width} - ${styles.downloadStyle.width}) / 4)`,
         }}
         animate={{
-          left: `calc((100vw - ${styles.imageStyle.width} - ${styles.downloadStyle.width}) / 4)`,
+          left: `calc((100% - ${styles.imageStyle.width} - ${styles.downloadStyle.width}) / 4)`,
           opacity: styles.arrowStyle.opacity,
         }}
         whileHover={{
@@ -115,10 +116,10 @@ function Banner() {
           position: "absolute",
           top: "calc(50% - 24px)",
           cursor: "pointer",
-          right: `calc((100vw - ${styles.imageStyle.width} - ${styles.downloadStyle.width}) / 4)`,
+          right: `calc((100% - ${styles.imageStyle.width} - ${styles.downloadStyle.width}) / 4)`,
         }}
         animate={{
-          right: `calc((100vw - ${styles.imageStyle.width} - ${styles.downloadStyle.width}) / 4)`,
+          right: `calc((100% - ${styles.imageStyle.width} - ${styles.downloadStyle.width}) / 4)`,
           opacity: styles.arrowStyle.opacity,
         }}
         whileHover={{
