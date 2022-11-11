@@ -1,4 +1,4 @@
-import { Banner, HotRecommendProps } from "./";
+import { Album, Banner, HotRecommendProps } from "./";
 
 export type HotRecommendResponse = {
   hasTaste: boolean;
@@ -9,5 +9,11 @@ export type HotRecommendResponse = {
 
 export type BannerResponseProps = {
   banners: Banner[];
+  code: number;
+};
+
+export type NewAlbumResponse = {
+  total: number;
+  albums: Album[];
   code: number;
 };
