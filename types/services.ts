@@ -1,4 +1,4 @@
-import { Album, Banner, HotRecommendProps } from "./";
+import { Album, Banner, HotRecommendProps, Playlist, Privilege } from "./";
 
 export type HotRecommendResponse = {
   hasTaste: boolean;
@@ -16,4 +16,17 @@ export type NewAlbumResponse = {
   total: number;
   albums: Album[];
   code: number;
+};
+
+export type PlaylistDetailResponse = {
+  code: number;
+  relatedVideos: null;
+  playlist: Playlist;
+  urls: null;
+  privileges: Privilege[];
+  sharedPrivilege: null;
+  resEntrance: null;
+  fromUsers: null;
+  fromUserCount: number;
+  songFromUsers: null;
 };
