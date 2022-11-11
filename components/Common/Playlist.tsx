@@ -2,6 +2,7 @@ import React, { Key, useMemo } from "react";
 import Image from "next/image";
 import styles from "./index.module.css";
 import globalStyles from "styles/global.module.css";
+import MultipleLines from "./MultipleLines";
 
 type Props = {
   playcount: number;
@@ -31,7 +32,9 @@ function Playlist({ playcount, picUrl, name, id }: Props) {
     >
       <Image src={picUrl} alt={picUrl} width={140} height={140} priority />
       <div className={styles["playlist-mask"]} />
-      <div style={{ maxWidth: "140px", marginTop: "6px" }}>{name}</div>
+      <MultipleLines lines={2} maxWidth={"140px"} style={{ marginTop: "8px" }}>
+        {name}
+      </MultipleLines>
       <div className={styles["playlist-controller"]}>
         <div className={globalStyles["flex-align-center"]}>
           <div className={styles["playlist-listenicon"]} />
