@@ -3,6 +3,7 @@ import { Layout } from "antd";
 import useHomePageStyles from "hooks/styles/useHomePageStyles";
 import React from "react";
 import HotRecommend from "./HotRecommend";
+import NewAlbum from "./NewAlbum";
 
 function Content() {
   const { imageStyle, downloadStyle } = useHomePageStyles();
@@ -13,9 +14,11 @@ function Content() {
         padding: "16px 20px",
         background: "#fff",
         width: imageStyle.width,
+        border: "1px solid #d3d3d3",
       }}
     >
       <HotRecommend />
+      <NewAlbum />
     </Layout.Content>
   );
 }
