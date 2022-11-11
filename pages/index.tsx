@@ -3,6 +3,7 @@ import {
   getHotRecommend,
   url as hotRecommendUrl,
 } from "@services/useHotRecommend";
+import { url as newAlbumUrl, getNewAlbum } from "@services/useNewAlbum";
 import Navbar from "components/Common/Navbar";
 import Banner from "components/HomePage/Banner";
 import Content from "components/HomePage/Content";
@@ -22,11 +23,13 @@ const Home: NextPage<{ fallback: Promise<any> }> = ({ fallback }) => {
 export const getServerSideProps = async () => {
   const bannerData = await getBanner();
   const hotRecommendData = await getHotRecommend();
+  const newAlbumData = await getNewAlbum();
   return {
     props: {
       fallback: {
         [bannerUrl]: bannerData,
         [hotRecommendUrl]: hotRecommendData,
+        [newAlbumUrl]: newAlbumData,
       },
     },
   };
