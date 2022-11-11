@@ -1,7 +1,6 @@
 import useHotRecommend from "@services/useHotRecommend";
 import React, { useMemo } from "react";
 import PartTitle from "./PartTitle";
-import globalStyles from "styles/global.module.css";
 import Playlist from "components/Common/Playlist";
 
 function HotRecommend() {
@@ -17,7 +16,7 @@ function HotRecommend() {
           flexWrap: "wrap",
           justifyContent: "space-between",
           marginTop: "24px",
-          maxHeight: "380px",
+          maxHeight: "430px",
           overflow: "hidden",
         }}
       >
