@@ -15,7 +15,13 @@ function NewAlbum() {
     <>
       <PartTitle>新碟上架</PartTitle>
 
-      <div style={{ position: "relative", overflow: 'hidden' }}>
+      <div
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          marginBottom: "16px",
+        }}
+      >
         <Carousel
           ref={carouselRef}
           autoplay={false}
