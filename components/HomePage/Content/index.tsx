@@ -4,6 +4,7 @@ import useHomePageStyles from "hooks/styles/useHomePageStyles";
 import React from "react";
 import HotRecommend from "./HotRecommend";
 import NewAlbum from "./NewAlbum";
+import Toplists from "./Toplists";
 
 function Content() {
   const { imageStyle, downloadStyle } = useHomePageStyles();
@@ -19,6 +20,7 @@ function Content() {
     >
       <HotRecommend />
       <NewAlbum />
+      <Toplists />
     </Layout.Content>
   );
 }
