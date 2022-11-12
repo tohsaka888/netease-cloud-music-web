@@ -79,3 +79,33 @@ a {
   display: flex !important;
   align-items: center !important;
 }
+
+.toplist-table {
+  border-color: #d3d3d3 !important;
+  border-left: 1px solid #d3d3d3 !important;
+  border-bottom: 1px solid #d3d3d3;
+  border-top: 1px solid #d3d3d3;
+  margin-top: 16px;
+}
+
+.toplist-table .ant-table-cell {
+  height: 32px !important;
+  padding: 0px 16px !important;
+  border-right-color: #d3d3d3 !important;
+}
+
+.toplist-table .ant-table-row-level-0 {
+  border-left: 1px solid #d3d3d3 !important;
+}
+
+.toplist-table .ant-table-row:nth-child(2n-1) {
+  background-color: #efefef;
+}
+
+.toplist-table .ant-table-row:nth-child(2n) {
+  background-color: #f9f9f9;
+}
+
+.toplist-table .ant-table-cell-row-hover {
+  background-color: transparent !important;
+}
