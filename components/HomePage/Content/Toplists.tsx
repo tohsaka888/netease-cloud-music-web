@@ -4,7 +4,7 @@ import { Table } from "antd";
 import { newId, originId, solarId } from "config/toplistIds";
 import React, { useMemo, useState } from "react";
 import PartTitle from "./PartTitle";
-import { Playlist } from "types";
+import { Playlist, PlaylistDetailResponse } from "types";
 import globalStyle from "styles/global.module.css";
 import styles from "../index.module.css";
 import MultipleLines from "components/Common/MultipleLines";
@@ -12,11 +12,15 @@ import Image from "next/image";
 import NeteaseIcon from "components/Common/NeteaseIcons";
 import { motion } from "framer-motion";
 
-function Toplists() {
-  const { data: soarData } = usePlaylistDetail({ id: +solarId! });
-  const { data: newData } = usePlaylistDetail({ id: +newId! });
-  const { data: originData } = usePlaylistDetail({ id: +originId! });
-
+function ToplistTable({
+  soarData,
+  newData,
+  originData,
+}: {
+  soarData: PlaylistDetailResponse;
+  newData: PlaylistDetailResponse;
+  originData: PlaylistDetailResponse;
+}) {
   const dataSource = useMemo(() => {
     const res = [];
     if (soarData && newData && originData) {
@@ -166,21 +170,54 @@ function Toplists() {
       },
     ];
   }, [soarData, newData, originData]);
+  return (
+    <Table
+      columns={columns}
+      dataSource={dataSource}
+      pagination={false}
+      className={"toplist-table"}
+      bordered
+      style={{
+        overflow: "hidden",
+        width: "100%",
+      }}
+    />
+  );
+}
+
+function Toplists() {
+  const { data: soarData } = usePlaylistDetail({ id: +solarId! });
+  const { data: newData } = usePlaylistDetail({ id: +newId! });
+  const { data: originData } = usePlaylistDetail({ id: +originId! });
 
   return (
     <>
       <PartTitle>榜单</PartTitle>
-      <Table
-        columns={columns}
-        dataSource={dataSource}
-        pagination={false}
-        className={"toplist-table"}
-        bordered
-        style={{
-          overflow: "hidden",
-          width: "100%",
-        }}
-      />
+      {soarData && newData && originData ? (
+        <ToplistTable
+          soarData={soarData}
+          newData={newData}
+          originData={originData}
+        />
+      ) : (
+        <Table
+          loading
+          pagination={false}
+          className={"toplist-table"}
+          bordered
+          columns={[
+            {
+              title: "飙升榜",
+            },
+            {
+              title: "新歌榜",
+            },
+            {
+              title: "原创榜",
+            },
+          ]}
+        />
+      )}
     </>
   );
 }
