@@ -60,6 +60,9 @@ function Banner() {
               key={banner.targetId}
               src={banner.imageUrl}
               alt={banner.imageUrl}
+              initial={{
+                ...(styles.imageStyle as any),
+              }}
               animate={{
                 ...(styles.imageStyle as TargetAndTransition),
               }}
