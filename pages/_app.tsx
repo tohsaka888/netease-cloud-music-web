@@ -4,6 +4,7 @@ import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 import { SWRConfig } from "swr";
 import { message } from "antd";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -19,6 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
         },
       }}
     >
+      <Head>
+        <title>网易云音乐</title>
+      </Head>
       <Component {...pageProps} />
     </SWRConfig>
   );
