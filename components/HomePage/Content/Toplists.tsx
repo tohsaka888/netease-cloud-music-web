@@ -139,6 +139,7 @@ function Toplists() {
         key: "soar",
         dataIndex: "soar",
         width: "calc(100% / 3)",
+        ellpsis: true,
         render(val, record, index) {
           return <ColumnRender val={val} record={record} index={index} />;
         },
@@ -148,6 +149,7 @@ function Toplists() {
         key: "new",
         dataIndex: "new",
         width: "calc(100% / 3)",
+        ellpsis: true,
         render(val, record, index) {
           return <ColumnRender val={val} record={record} index={index} />;
         },
@@ -157,6 +159,7 @@ function Toplists() {
         key: "origin",
         width: "calc(100% / 3)",
         dataIndex: "origin",
+        ellpsis: true,
         render(val, record, index) {
           return <ColumnRender val={val} record={record} index={index} />;
         },
@@ -173,6 +176,10 @@ function Toplists() {
         pagination={false}
         className={"toplist-table"}
         bordered
+        style={{
+          overflow: "hidden",
+          width: "100%",
+        }}
       />
     </>
   );
