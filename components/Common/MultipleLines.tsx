@@ -9,12 +9,13 @@ type Props = {
 
 function MultipleLines({ children, lines = 2, maxWidth, ...props }: Props) {
   return (
-    <div
-      className={styles["multiple-lines"]}
-      {...props}
-      style={{ WebkitLineClamp: lines, maxWidth, ...props.style }}
-    >
-      {children}
+    <div {...props}>
+      <div
+        className={styles["multiple-lines"]}
+        style={{ WebkitLineClamp: lines, maxWidth, ...props.style }}
+      >
+        {children}
+      </div>
     </div>
   );
 }
