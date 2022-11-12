@@ -2,7 +2,7 @@ import usePlaylistDetail from "@services/usePlaylistDetail";
 import { ColumnType } from "antd/lib/table";
 import { Table } from "antd";
 import { newId, originId, solarId } from "config/toplistIds";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import PartTitle from "./PartTitle";
 import { Playlist } from "types";
 import globalStyle from "styles/global.module.css";
@@ -10,6 +10,7 @@ import styles from "../index.module.css";
 import MultipleLines from "components/Common/MultipleLines";
 import Image from "next/image";
 import NeteaseIcon from "components/Common/NeteaseIcons";
+import { motion } from "framer-motion";
 
 function Toplists() {
   const { data: soarData } = usePlaylistDetail({ id: +solarId! });
@@ -41,13 +42,25 @@ function Toplists() {
     return res;
   }, [soarData, newData, originData]);
 
-  const render = (
-    val: Playlist,
-    record: Record<string, Playlist>,
-    index: number
-  ) => {
+  const ColumnRender = ({
+    val,
+    record,
+    index,
+  }: {
+    val: Playlist;
+    record: Record<string, Playlist>;
+    index: number;
+  }) => {
+    const [isHover, setIsHover] = useState<boolean>(false);
     return (
-      <>
+      <motion.div
+        onHoverStart={() => {
+          setIsHover(true);
+        }}
+        onHoverEnd={() => {
+          setIsHover(false);
+        }}
+      >
         {val.name.includes("查看全部") ? (
           <div className={styles["read-more"]}>{val.name}</div>
         ) : (
@@ -71,9 +84,27 @@ function Toplists() {
             >
               {val.name}
             </MultipleLines>
+            <motion.div
+              className={globalStyle["flex-align-center"]}
+              initial={{ display: "none" }}
+              animate={{
+                display: isHover ? "flex" : "none",
+              }}
+            >
+              <NeteaseIcon name={"play-small"} />
+              <NeteaseIcon
+                name={"add"}
+                style={{
+                  marginTop: "4px",
+                  marginLeft: "6px",
+                  marginRight: "6px",
+                }}
+              />
+              <NeteaseIcon name={"collect-small"} />
+            </motion.div>
           </div>
         )}
-      </>
+      </motion.div>
     );
   };
 
@@ -92,16 +123,9 @@ function Toplists() {
           <div className={globalStyle["flex-align-center"]}>
             <NeteaseIcon
               name={"play"}
-              width={22}
-              height={22}
               style={{ marginTop: "8px", marginRight: "16px" }}
             />
-            <NeteaseIcon
-              name={"collect"}
-              width={22}
-              height={22}
-              style={{ marginTop: "8px" }}
-            />
+            <NeteaseIcon name={"collect"} style={{ marginTop: "8px" }} />
           </div>
         </div>
       </div>
@@ -114,19 +138,28 @@ function Toplists() {
         title: columnTitle(soarData!.playlist),
         key: "soar",
         dataIndex: "soar",
-        render,
+        width: "calc(100% / 3)",
+        render(val, record, index) {
+          return <ColumnRender val={val} record={record} index={index} />;
+        },
       },
       {
         title: columnTitle(newData!.playlist),
         key: "new",
         dataIndex: "new",
-        render,
+        width: "calc(100% / 3)",
+        render(val, record, index) {
+          return <ColumnRender val={val} record={record} index={index} />;
+        },
       },
       {
         title: columnTitle(originData!.playlist),
         key: "origin",
+        width: "calc(100% / 3)",
         dataIndex: "origin",
-        render,
+        render(val, record, index) {
+          return <ColumnRender val={val} record={record} index={index} />;
+        },
       },
     ];
   }, [soarData, newData, originData]);
