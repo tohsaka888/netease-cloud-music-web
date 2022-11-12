@@ -41,3 +41,49 @@
   height: 17px;
   background-position: -320px -75px;
 }
+
+.top-index {
+  width: 35px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+}
+
+.read-more {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+.toplist-song-name {
+  color: #000;
+}
+
+.toplist-song-name:hover {
+  text-decoration: underline;
+}
+
+.column-title-container {
+  padding: 16px 0px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.column-title-playlist-container {
+  margin-left: 16px;
+  color: #000;
+  font-weight: bold;
+}
+
+.playlist-mask {
+  position: absolute;
+  background: url(https://s2.music.126.net/style/web2/img/coverall.png?0fb42867861dca88f7f8fd63e3609e20)
+    no-repeat;
+  top: 16px;
+  left: 0px;
+  width: 80px;
+  height: 80px;
+  background-position: -145px -57px;
+}
