@@ -88,6 +88,10 @@ a {
   margin-top: 16px;
 }
 
+.toplist-table * {
+  border-radius: 0px !important;
+}
+
 .toplist-table .ant-table-cell {
   height: 32px !important;
   padding: 0px 16px !important;
