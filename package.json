@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "ahooks": "^3.7.2",
-    "antd": "^4.24.1",
+    "antd": "^5.0.0",
     "framer-motion": "^7.6.5",
     "netease-music-player": "^0.1.0",
     "next": "13.0.3",
