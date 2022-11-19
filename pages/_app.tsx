@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
+import 'antd/dist/reset.css';
 import { SWRConfig } from "swr";
 import { message } from "antd";
 import { useRouter } from "next/router";
