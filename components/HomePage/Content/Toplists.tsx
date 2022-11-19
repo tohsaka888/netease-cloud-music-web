@@ -180,6 +180,7 @@ function ToplistTable({
       style={{
         overflow: "hidden",
         width: "100%",
+        marginBottom: "36px",
       }}
     />
   );
@@ -205,6 +206,7 @@ function Toplists() {
           pagination={false}
           className={"toplist-table"}
           bordered
+          style={{ marginBottom: "36px" }}
           columns={[
             {
               title: "飙升榜",
