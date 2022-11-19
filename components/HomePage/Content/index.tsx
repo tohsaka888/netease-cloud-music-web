@@ -11,7 +11,7 @@ function Content() {
   return (
     <Layout.Content
       style={{
-        margin: `0px calc((100% - ${imageStyle.width} - ${downloadStyle.width}) / 2)`,
+        marginLeft: `calc((100% - ${imageStyle.width} - ${downloadStyle.width}) / 2)`,
         padding: "16px 20px",
         background: "#fff",
         width: imageStyle.width,
