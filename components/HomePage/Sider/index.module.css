@@ -1,0 +1,24 @@
+.suggest-login-container {
+  height: 126px;
+  padding-top: 0;
+  background: url(https://s2.music.126.net/style/web2/img/index/index.png?724237747bf71331ed93400836cc97b7)
+    no-repeat 0 9999px;
+  background-position: 0 0;
+  width: 253px;
+  margin-left: 0.5px;
+}
+
+.login-button {
+  text-shadow: 0 1px 0 #8a060b;
+  width: 100px;
+  height: 31px;
+  text-align: center;
+  background: url(https://s2.music.126.net/style/web2/img/index/index.png?6138ce5db961b3799c11405c9a3ee7aa)
+    no-repeat 0 9999px;
+  background-position: -110px -195px;
+  color: #fff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
