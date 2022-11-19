@@ -1,5 +1,4 @@
 import usePlaylistDetail from "@services/usePlaylistDetail";
-import { ColumnType } from "antd/lib/table";
 import { Table } from "antd";
 import { newId, originId, solarId } from "config/toplistIds";
 import React, { useMemo, useState } from "react";
@@ -11,6 +10,7 @@ import MultipleLines from "components/Common/MultipleLines";
 import Image from "next/image";
 import NeteaseIcon from "components/Common/NeteaseIcons";
 import { motion } from "framer-motion";
+import { ColumnType } from "antd/es/table";
 
 function ToplistTable({
   soarData,
