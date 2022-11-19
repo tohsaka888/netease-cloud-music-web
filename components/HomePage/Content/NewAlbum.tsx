@@ -5,7 +5,7 @@ import React, { useMemo, useRef } from "react";
 import PartTitle from "./PartTitle";
 import styles from "../index.module.css";
 import MultipleLines from "components/Common/MultipleLines";
-import { CarouselRef } from "antd/lib/carousel";
+import { CarouselRef } from "antd/es/carousel";
 
 function NewAlbum() {
   const { data } = useNewAlbum();

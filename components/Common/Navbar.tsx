@@ -1,10 +1,10 @@
 import React, { CSSProperties, useMemo, useRef } from "react";
 import { Button, Input, Layout, Menu } from "antd";
 import { useResponsive } from "ahooks";
-import { ItemType } from "antd/lib/menu/hooks/useItems";
 import style from "./index.module.css";
 import { BsSearch } from "react-icons/bs";
 import { useRouter } from "next/router";
+import { ItemType } from "antd/es/menu/hooks/useItems";
 
 const items: ItemType[] = [
   { label: "发现音乐", key: "/" },

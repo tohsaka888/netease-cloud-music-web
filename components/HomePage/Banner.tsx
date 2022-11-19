@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import { useMemo } from "react";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { motion, TargetAndTransition } from "framer-motion";
-import { CarouselRef } from "antd/lib/carousel";
+import { CarouselRef } from "antd/es/carousel";
 import useHomePageStyles from "hooks/styles/useHomePageStyles";
 
 function Banner() {
