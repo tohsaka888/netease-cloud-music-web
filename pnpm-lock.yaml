@@ -7,7 +7,7 @@ specifiers:
   ahooks: ^3.7.2
   antd: ^4.24.1
   framer-motion: ^7.6.5
-  netease-music-player: ^0.1.0
+  netease-music-player: ^0.1.1
   next: 13.0.3
   react: 18.2.0
   react-dom: 18.2.0
@@ -20,7 +20,7 @@ dependencies:
   ahooks: 3.7.2_react@18.2.0
   antd: 4.24.1_biqbaboplfbrettd7655fr4n2y
   framer-motion: 7.6.5_biqbaboplfbrettd7655fr4n2y
-  netease-music-player: 0.1.0_biqbaboplfbrettd7655fr4n2y
+  netease-music-player: 0.1.1_biqbaboplfbrettd7655fr4n2y
   next: 13.0.3_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -809,8 +809,8 @@ packages:
     hasBin: true
     dev: false
 
-  /netease-music-player/0.1.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-SAmA9Qw9K2JPkpvevDZUIr4IspRhFOMtU1uNFrLjitGK/BCOwzVy1PdxAxGUYPsYjA1Bvf5jWPa5UalU68GSew==}
+  /netease-music-player/0.1.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-J9TPrPpFGP0iepmYqQoYZTcB/GPxoru0qaPgsRSzxGw0zAlv9oNL9kBudql4o+ri4EmV8Sd3W5MKrkZEZrVNbA==}
     dependencies:
       framer-motion: 7.6.6_biqbaboplfbrettd7655fr4n2y
       moment: 2.29.4
