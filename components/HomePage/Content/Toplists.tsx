@@ -35,12 +35,14 @@ function ToplistTable({
           origin: {
             ...originData.playlist.tracks[i],
           },
+          id: soarData.playlist.tracks[i].id,
         });
       }
       res.push({
         soar: { name: "查看全部>" },
         new: { name: "查看全部>" },
         origin: { name: "查看全部>" },
+        id: "more",
       });
     }
     return res;
@@ -170,7 +172,7 @@ function ToplistTable({
       },
     ];
   }, [soarData, newData, originData]);
-  
+
   return (
     <Table
       columns={columns}
@@ -178,7 +180,7 @@ function ToplistTable({
       pagination={false}
       className={"toplist-table"}
       bordered
-      rowKey={(record) => record.soar.id}
+      rowKey={"id"}
       style={{
         overflow: "hidden",
         width: "100%",
