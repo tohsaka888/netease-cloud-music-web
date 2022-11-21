@@ -47,3 +47,7 @@
   height: 62px;
   margin-bottom: 12px;
 }
+
+.artist-container:hover {
+  background-color: #dfdfdf;
+}
