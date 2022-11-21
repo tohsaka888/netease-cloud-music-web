@@ -15,7 +15,7 @@ function Artists() {
       </div>
       {artists?.map((artist) => {
         return (
-          <div className={styles["artist-container"]}>
+          <div className={styles["artist-container"]} key={artist.id}>
             <Image
               width={62}
               height={62}
