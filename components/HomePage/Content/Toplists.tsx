@@ -170,6 +170,7 @@ function ToplistTable({
       },
     ];
   }, [soarData, newData, originData]);
+  
   return (
     <Table
       columns={columns}
