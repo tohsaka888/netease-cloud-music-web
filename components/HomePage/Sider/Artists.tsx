@@ -34,11 +34,17 @@ function Artists() {
               <MultipleLines
                 lines={1}
                 maxWidth={"100%"}
-                style={{ fontWeight: "bold", color: "#333" }}
+                style={{ fontWeight: "bold", color: "#333", fontSize: "14px" }}
               >
                 {artist.name}
               </MultipleLines>
-              <div>{artist.showPrivateMsg}</div>
+              <MultipleLines
+                lines={1}
+                maxWidth={"100%"}
+                style={{ fontSize: "12px", marginTop: "6px" }}
+              >
+                {artist.alias.join(",")}
+              </MultipleLines>
             </div>
           </div>
         );
