@@ -1,8 +1,8 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import 'antd/dist/reset.css';
+import "antd/dist/reset.css";
 import { SWRConfig } from "swr";
-import { message } from "antd";
+import { BackTop, message } from "antd";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { MusicPlayer } from "netease-music-player";
@@ -52,6 +52,7 @@ export default function App({ Component, pageProps }: AppProps) {
         }}
         playlistLength={10}
       />
+      <BackTop />
     </SWRConfig>
   );
 }
