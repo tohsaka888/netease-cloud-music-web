@@ -177,6 +177,7 @@ function ToplistTable({
       pagination={false}
       className={"toplist-table"}
       bordered
+      rowKey={(record) => record.soar.id}
       style={{
         overflow: "hidden",
         width: "100%",
