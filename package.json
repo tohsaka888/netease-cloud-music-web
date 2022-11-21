@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:verbose": "npm run dev --verbose",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
