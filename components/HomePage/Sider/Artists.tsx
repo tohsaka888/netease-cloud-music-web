@@ -1,4 +1,5 @@
 import useHotArtists from "@services/useHotArtists";
+import MultipleLines from "components/Common/MultipleLines";
 import Image from "next/image";
 import React, { useMemo } from "react";
 import styles from "./index.module.css";
@@ -22,6 +23,23 @@ function Artists() {
               alt={artist.img1v1Id_str}
               src={artist.img1v1Url}
             />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                marginLeft: "12px",
+              }}
+            >
+              <MultipleLines
+                lines={1}
+                maxWidth={"100%"}
+                style={{ fontWeight: "bold", color: "#333" }}
+              >
+                {artist.name}
+              </MultipleLines>
+              <div>{artist.showPrivateMsg}</div>
+            </div>
           </div>
         );
       })}
