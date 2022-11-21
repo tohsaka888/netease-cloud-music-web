@@ -11,6 +11,7 @@ import Content from "components/HomePage/Content";
 import { NextPage } from "next";
 import { SWRConfig } from "swr";
 import { Layout } from "antd";
+import { getHotArtists } from "@services/useHotArtists";
 
 const Home: NextPage<{ fallback: Promise<any> }> = ({ fallback }) => {
   return (
@@ -29,12 +30,14 @@ export const getServerSideProps = async () => {
   const bannerData = await getBanner();
   const hotRecommendData = await getHotRecommend();
   const newAlbumData = await getNewAlbum();
+  const hotArtistsData = await getHotArtists();
   return {
     props: {
       fallback: {
         [bannerUrl]: bannerData,
         [hotRecommendUrl]: hotRecommendData,
         [newAlbumUrl]: newAlbumData,
+        hotArtists: hotArtistsData,
       },
     },
   };
