@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import "antd/dist/reset.css";
 import { SWRConfig } from "swr";
-import { BackTop, message } from "antd";
+import { FloatButton, message } from "antd";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { MusicPlayer } from "netease-music-player";
@@ -25,6 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>网易云音乐</title>
       </Head>
       <Component {...pageProps} />
+      <FloatButton.BackTop style={{}} />
       <MusicPlayer
         name={"Beautiful World (Da Capo Version)"}
         artist={"宇多田ヒカル"}
@@ -52,7 +53,6 @@ export default function App({ Component, pageProps }: AppProps) {
         }}
         playlistLength={10}
       />
-      <BackTop />
     </SWRConfig>
   );
 }
