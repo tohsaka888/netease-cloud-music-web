@@ -63,3 +63,62 @@ export type HotArtistsResponse = {
   more: boolean;
   artists: ArtistProps[];
 };
+
+type HotDjToplist = {
+  id: number;
+  name: string;
+  picUrl: string;
+  programCount: number;
+  subCount: number;
+  createTime: number;
+  categoryId: number;
+  category: string;
+  rcmdtext: null | string;
+  radioFeeType: number;
+  feeScope: number;
+  playCount: number;
+  lastRank: number;
+  score: number;
+  dj: Dj;
+  creatorName: string;
+  rank: number;
+};
+type Dj = {
+  defaultAvatar: boolean;
+  province: number;
+  authStatus: number;
+  followed: boolean;
+  avatarUrl: string;
+  accountStatus: number;
+  gender: number;
+  city: number;
+  birthday: number;
+  userId: number;
+  userType: number;
+  nickname: string;
+  signature: string;
+  description: string;
+  detailDescription: string;
+  avatarImgId: number;
+  backgroundImgId: number;
+  backgroundUrl: string;
+  authority: number;
+  mutual: boolean;
+  expertTags: null;
+  experts: null;
+  djStatus: number;
+  vipType: number;
+  remarkName: null;
+  authenticationTypes: number;
+  avatarDetail: null;
+  backgroundImgIdStr: string;
+  avatarImgIdStr: string;
+  anchor: boolean;
+  avatarImgId_str: string;
+};
+
+export type HotDjResponse = {
+  updateTime: number;
+  toplist: HotDjToplist[];
+  code: number;
+};
