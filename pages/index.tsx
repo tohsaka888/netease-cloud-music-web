@@ -12,6 +12,7 @@ import { NextPage } from "next";
 import { SWRConfig } from "swr";
 import { Layout } from "antd";
 import { getHotArtists } from "@services/useHotArtists";
+import { getHotDj } from "@services/useHotDj";
 
 const Home: NextPage<{ fallback: Promise<any> }> = ({ fallback }) => {
   return (
@@ -31,6 +32,7 @@ export const getServerSideProps = async () => {
   const hotRecommendData = await getHotRecommend();
   const newAlbumData = await getNewAlbum();
   const hotArtistsData = await getHotArtists();
+  const hotDjData = await getHotDj();
   return {
     props: {
       fallback: {
@@ -38,6 +40,7 @@ export const getServerSideProps = async () => {
         [hotRecommendUrl]: hotRecommendData,
         [newAlbumUrl]: newAlbumData,
         hotArtists: hotArtistsData,
+        hotDj: hotDjData,
       },
     },
   };
