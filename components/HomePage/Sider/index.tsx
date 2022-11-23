@@ -2,6 +2,7 @@ import { Layout } from "antd";
 import useHomePageStyles from "hooks/styles/useHomePageStyles";
 import React from "react";
 import Artists from "./Artists";
+import HotDj from "./HotDj";
 import SuggestLogin from "./SuggestLogin";
 
 function Sider() {
@@ -18,6 +19,7 @@ function Sider() {
     >
       <SuggestLogin />
       <Artists />
+      <HotDj />
     </Layout.Sider>
   );
 }
