@@ -5,6 +5,7 @@ import style from "./index.module.css";
 import { BsSearch } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { ItemType } from "antd/es/menu/hooks/useItems";
+import { useDispatchModalVisible } from "context/LoginModalVisibleProvider";
 
 const items: ItemType[] = [
   { label: "发现音乐", key: "/" },
@@ -27,6 +28,7 @@ const subItems: ItemType[] = [
 function Navbar() {
   const responsive = useResponsive();
   const { pathname } = useRouter();
+  const setVisible = useDispatchModalVisible();
 
   const isHomePage = useMemo(
     () => (pathname === "/" ? true : false),
@@ -148,6 +150,7 @@ function Navbar() {
             <Button
               type={"link"}
               style={{ fontSize: "12px", color: "#666666" }}
+              onClick={() => setVisible(true)}
             >
               登录
             </Button>
