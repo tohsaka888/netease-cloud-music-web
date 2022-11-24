@@ -6,6 +6,8 @@ import { FloatButton, message } from "antd";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { MusicPlayer } from "netease-music-player";
+import LoginModalVisibleProvider from "context/LoginModalVisibleProvider";
+import LoginModal from "components/Common/LoginModal";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -16,7 +18,9 @@ export default function App({ Component, pageProps }: AppProps) {
         onError(err: Error, key, config) {
           message.error(err.name + err.message);
           if (!router.pathname.includes("error")) {
-            router.push("/error");
+            router.push("/error", {
+              query: JSON.stringify(err),
+            });
           }
         },
       }}
@@ -24,8 +28,15 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>网易云音乐</title>
       </Head>
-      <Component {...pageProps} />
-      <FloatButton.BackTop style={{}} />
+      <LoginModalVisibleProvider>
+        <Component {...pageProps} />
+        <LoginModal />
+      </LoginModalVisibleProvider>
+      <FloatButton.BackTop
+        style={{
+          marginBottom: "32px",
+        }}
+      />
       <MusicPlayer
         name={"Beautiful World (Da Capo Version)"}
         artist={"宇多田ヒカル"}
