@@ -4,6 +4,7 @@ import {
   useModalVisible,
 } from "context/LoginModalVisibleProvider";
 import React from "react";
+import styles from "./index.module.css";
 
 function LoginModal() {
   const visible = useModalVisible();
@@ -18,7 +19,13 @@ function LoginModal() {
       onCancel={() => {
         setVisible(false);
       }}
-    ></Modal>
+      className={"login-modal"}
+      footer={null}
+    >
+      <div className={styles["login-modal-body"]}>
+        
+      </div>
+    </Modal>
   );
 }
 
