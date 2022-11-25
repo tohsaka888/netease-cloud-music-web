@@ -116,3 +116,25 @@ a {
 .toplist-table .ant-table-cell-row-hover {
   background-color: transparent !important;
 }
+
+.login-modal .ant-modal-content {
+  padding: 0px !important;
+}
+
+.login-modal .ant-modal-header {
+  background-color: #2d2d2d !important;
+  padding: 10px 24px;
+}
+
+.login-modal .ant-modal-title {
+  color: #fff !important;
+  font-size: 14px;
+}
+
+.login-modal .ant-modal-close-x {
+  color: #666666 !important;
+}
+
+.login-modal .ant-modal-close {
+  top: 10px !important;
+}
