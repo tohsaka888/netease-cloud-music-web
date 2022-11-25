@@ -55,3 +55,7 @@
   -webkit-box-orient: vertical;
   word-break: break-all;
 }
+
+.login-modal-body {
+  padding: 16px;
+}
