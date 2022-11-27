@@ -58,4 +58,46 @@
 
 .login-modal-body {
   padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 270px;
+}
+
+.login-modal-image {
+  background-image: url(https://s2.music.126.net/style/web2/img/qr_guide.png?7ef838ff1a2a41bd5f79df00dcfe5a04);
+  width: 150px;
+  height: 265px;
+  background-size: contain;
+}
+
+.qr-code-area {
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  height: 240px;
+}
+
+.login-modal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.other-way-login {
+  display: block;
+  width: 118px;
+  height: 28px;
+  margin: 8px 0px 16px 0px;
+  padding-right: 0;
+  font-size: 12px;
+  border: 1px solid #979797;
+  border-radius: 15px;
+  line-height: 28px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
 }
