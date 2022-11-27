@@ -13,6 +13,8 @@ import { SWRConfig } from "swr";
 import { Layout } from "antd";
 import { getHotArtists } from "@services/useHotArtists";
 import { getHotDj } from "@services/useHotDj";
+import { getLoginStatus } from "@services/useLoginStatus";
+import { getAccountInfo } from "@services/useAccountInfo";
 
 const Home: NextPage<{ fallback: Promise<any> }> = ({ fallback }) => {
   return (
@@ -33,6 +35,7 @@ export const getServerSideProps = async () => {
   const newAlbumData = await getNewAlbum();
   const hotArtistsData = await getHotArtists();
   const hotDjData = await getHotDj();
+  const loginStatus = await getLoginStatus();
   return {
     props: {
       fallback: {
@@ -41,6 +44,7 @@ export const getServerSideProps = async () => {
         [newAlbumUrl]: newAlbumData,
         hotArtists: hotArtistsData,
         hotDj: hotDjData,
+        loginStatus,
       },
     },
   };
