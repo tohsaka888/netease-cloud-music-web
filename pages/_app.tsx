@@ -8,6 +8,7 @@ import Head from "next/head";
 import { MusicPlayer } from "netease-music-player";
 import LoginModalVisibleProvider from "context/LoginModalVisibleProvider";
 import LoginModal from "components/Common/LoginModal";
+import QrImageProvider from "context/QrImageProvider";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -18,9 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
         onError(err: Error, key, config) {
           message.error(err.name + err.message);
           if (!router.pathname.includes("error")) {
-            router.push("/error", {
-              query: JSON.stringify(err),
-            });
+            router.push("/error/" + key);
           }
         },
       }}
@@ -28,10 +27,14 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>网易云音乐</title>
       </Head>
+
       <LoginModalVisibleProvider>
-        <Component {...pageProps} />
-        <LoginModal />
+        <QrImageProvider>
+          <Component {...pageProps} />
+          <LoginModal />
+        </QrImageProvider>
       </LoginModalVisibleProvider>
+
       <FloatButton.BackTop
         style={{
           marginBottom: "32px",
