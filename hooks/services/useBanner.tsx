@@ -1,6 +1,6 @@
 import React from "react";
 import { baseUrl } from "config/baseUrl";
-import useSWR from "swr";
+import useImmutableSWR from "swr/immutable";
 import { BannerResponseProps } from "types";
 
 export const url = `${baseUrl}/banner?type=0`;
@@ -14,7 +14,7 @@ export const getBanner = async () => {
 };
 
 function useBanner() {
-  const response = useSWR(url, getBanner);
+  const response = useImmutableSWR(url, getBanner);
   return { ...response };
 }
 
