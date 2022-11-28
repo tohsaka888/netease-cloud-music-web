@@ -13,12 +13,12 @@ type RequestProps = {
 
 export const getPlaylistDetail = async ({ id, s }: RequestProps) => {
   const res = await fetch(url + `?id=${id}`, {
+    method: "POST",
     mode: "cors",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ id, s }),
-    method: "POST",
   });
   const data: PlaylistDetailResponse = await res.json();
   return data;
