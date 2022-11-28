@@ -90,7 +90,7 @@ function Banner() {
           }}
         >
           <span
-            style={{ fontSize: "12px", color: "#8d8d8d", marginBottom: "8px" }}
+            style={{ fontSize: "12px", color: "#8d8d8d", marginBottom: "12px" }}
           >
             PC 安卓 iPhone WP iPad Mac 六大客户端
           </span>
