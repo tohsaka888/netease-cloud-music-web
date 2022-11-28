@@ -31,6 +31,14 @@ type Account = {
 export const getLoginStatus = async () => {
   const res = await fetch(`${baseUrl}/login/status`, {
     mode: "cors",
+    method: "POST",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    // body: JSON.stringify({
+    //   cookie: localStorage.getItem("cookie"),
+    // }),
   });
   const data: LoginStatusResponse = await res.json();
   return data;
