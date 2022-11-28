@@ -1,11 +1,12 @@
-import React, { CSSProperties, useMemo, useRef } from "react";
-import { Button, Input, Layout, Menu } from "antd";
+import React, { CSSProperties, useMemo } from "react";
+import { Avatar, Button, Input, Layout, Menu } from "antd";
 import { useResponsive } from "ahooks";
 import style from "./index.module.css";
 import { BsSearch } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { ItemType } from "antd/es/menu/hooks/useItems";
 import { useDispatchModalVisible } from "context/LoginModalVisibleProvider";
+import useLoginStatus from "@services/useLoginStatus";
 
 const items: ItemType[] = [
   { label: "发现音乐", key: "/" },
@@ -29,6 +30,7 @@ function Navbar() {
   const responsive = useResponsive();
   const { pathname } = useRouter();
   const setVisible = useDispatchModalVisible();
+  const { data: loginStatus } = useLoginStatus();
 
   const isHomePage = useMemo(
     () => (pathname === "/" ? true : false),
@@ -147,13 +149,21 @@ function Navbar() {
             >
               创作者中心
             </Button>
-            <Button
-              type={"link"}
-              style={{ fontSize: "12px", color: "#666666" }}
-              onClick={() => setVisible(true)}
-            >
-              登录
-            </Button>
+            {loginStatus?.data.profile ? (
+              <Avatar
+                style={{ marginLeft: "16px" }}
+                src={loginStatus.data.profile.avatarUrl}
+                alt={loginStatus.data.account.userName}
+              />
+            ) : (
+              <Button
+                type={"link"}
+                style={{ fontSize: "12px", color: "#666666" }}
+                onClick={() => setVisible(true)}
+              >
+                登录
+              </Button>
+            )}
           </div>
         </div>
       </Layout.Header>
