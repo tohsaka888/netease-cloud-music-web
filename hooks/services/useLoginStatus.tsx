@@ -9,8 +9,48 @@ type LoginStatusResponse = {
 type Data = {
   code: number;
   account: Account;
-  profile: null;
+  profile: Profile;
 };
+
+type Profile = {
+  userId: number;
+  userType: number;
+  nickname: string;
+  avatarImgId: number;
+  avatarUrl: string;
+  backgroundImgId: number;
+  backgroundUrl: string;
+  signature: string;
+  createTime: number;
+  userName: string;
+  accountType: number;
+  shortUserName: string;
+  birthday: number;
+  authority: number;
+  gender: number;
+  accountStatus: number;
+  province: number;
+  city: number;
+  authStatus: number;
+  description: null;
+  detailDescription: null;
+  defaultAvatar: boolean;
+  expertTags: null;
+  experts: null;
+  djStatus: number;
+  locationStatus: number;
+  vipType: number;
+  followed: boolean;
+  mutual: boolean;
+  authenticated: boolean;
+  lastLoginTime: number;
+  lastLoginIP: string;
+  remarkName: null;
+  viptypeVersion: number;
+  authenticationTypes: number;
+  avatarDetail: null;
+  anchor: boolean;
+} | null;
 
 type Account = {
   id: number;
