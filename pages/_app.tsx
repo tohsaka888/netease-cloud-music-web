@@ -9,6 +9,7 @@ import { MusicPlayer } from "netease-music-player";
 import LoginModalVisibleProvider from "context/LoginModalVisibleProvider";
 import LoginModal from "components/Common/LoginModal";
 import QrImageProvider from "context/QrImageProvider";
+import Navbar from "components/Common/Navbar";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -18,11 +19,11 @@ export default function App({ Component, pageProps }: AppProps) {
       value={{
         onError(err: Error, key, config) {
           message.error(err.name + err.message);
-          console.log(config)
           if (!router.pathname.includes("error")) {
             router.push({
-              pathname: "/error/" + key,
+              pathname: "/error",
               query: {
+                key,
                 errName: err.name,
                 errMessage: err.message,
               },
@@ -37,6 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <LoginModalVisibleProvider>
         <QrImageProvider>
+          <Navbar />
           <Component {...pageProps} />
           <LoginModal />
         </QrImageProvider>
