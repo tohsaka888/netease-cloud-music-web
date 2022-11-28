@@ -12,35 +12,53 @@ function SuggestLogin() {
 
   if (profile) {
     return (
-      <div className={styles["daily-sign-container"]}>
-        <div className={styles["daily-sign-avatar"]}>
-          <Image
-            width={80}
-            height={80}
-            src={profile.avatarUrl}
-            alt={profile.userName}
-          />
-        </div>
-        <div
-          style={{
-            marginLeft: "16px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            height: "80px",
-          }}
-        >
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "bold" }}>
-            {profile.nickname}
+      <div className={styles["sign-background"]}>
+        <div className={styles["daily-sign-container"]}>
+          <div className={styles["daily-sign-avatar"]}>
+            <Image
+              width={80}
+              height={80}
+              src={profile.avatarUrl}
+              alt={profile.userName}
+            />
           </div>
-          <div className={styles.level}>
-            {profile.vipType}
-            <div className={styles["level-right"]} />
-          </div>
-          <div className={styles["daily-sign-button"]}>
-            <div className={styles["daily-sign-button-inner"]}>
-              签 到
+          <div
+            style={{
+              marginLeft: "16px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              height: "80px",
+            }}
+          >
+            <div
+              style={{ fontSize: "14px", color: "#333", fontWeight: "bold" }}
+            >
+              {profile.nickname}
             </div>
+            <div className={styles.level}>
+              {profile.vipType}
+              <div className={styles["level-right"]} />
+            </div>
+            <div className={styles["daily-sign-button"]}>
+              <div className={styles["daily-sign-button-inner"]}>签 到</div>
+            </div>
+          </div>
+        </div>
+        <div className={styles["account-info"]}>
+          <div className={styles["account-info-item"]}>
+            <div style={{ fontSize: "20px", marginBottom: "2px" }}>0</div>
+            <div style={{ fontSize: "12px" }}>动态</div>
+          </div>
+          <div className={styles["account-info-divider"]} />
+          <div className={styles["account-info-item"]}>
+            <div style={{ fontSize: "20px", marginBottom: "2px" }}>{0}</div>
+            <div style={{ fontSize: "12px" }}>关注</div>
+          </div>
+          <div className={styles["account-info-divider"]} />
+          <div className={styles["account-info-item"]}>
+            <div style={{ fontSize: "20px", marginBottom: "2px" }}>{0}</div>
+            <div style={{ fontSize: "12px" }}>粉丝</div>
           </div>
         </div>
       </div>
