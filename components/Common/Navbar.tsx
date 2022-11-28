@@ -182,7 +182,7 @@ function Navbar() {
           theme={"dark"}
           defaultSelectedKeys={[isHomePage ? "recommend" : ""]}
           style={{
-            marginLeft: `calc((100vw - ${styles.container.width}) / 2 + 183px)`,
+            marginLeft: `calc((100vw - ${styles.container.width}) / 2 + 192px)`,
             ...styles.submenu,
           }}
         />
