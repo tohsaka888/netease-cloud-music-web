@@ -21,6 +21,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .sider-title {
@@ -50,4 +51,76 @@
 
 .artist-container:hover {
   background-color: #dfdfdf;
+}
+
+.daily-sign-container {
+  background: url(https://s2.music.126.net/style/web2/img/index/index.png?594364704c1b21e06b59761e91e9648c)
+    no-repeat 0 9999px;
+  background-position: 0 -270px;
+  height: 165px;
+  border-bottom: 1px solid #cecece;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.daily-sign-avatar {
+  padding: 2px;
+  background: #fff;
+  border: 1px solid #dadada;
+  width: max-content;
+}
+
+.level {
+  background: url(https://s2.music.126.net/style/web2/img/icon2.png?4a0d200163d61ac161611693c518820a)
+    no-repeat 0 9999px;
+  background-position: -130px -84px;
+  color: #777;
+  position: relative;
+  width: 41px;
+  height: 17px;
+  color: #999;
+  font-weight: bold;
+  font-style: italic;
+  padding-left: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.level-right {
+  background: url(https://s2.music.126.net/style/web2/img/icon2.png?4a0d200163d61ac161611693c518820a)
+    no-repeat 0 9999px;
+  width: 8px;
+  height: 17px;
+  background-position: -192px -64px;
+}
+
+.daily-sign-button {
+  background: url(https://s2.music.126.net/style/web2/img/button2.png?79145a18e07d666fd1e36a1c68d986e1);
+  background-position: right -428px;
+  height: 31px;
+  line-height: 31px;
+  text-align: center;
+  cursor: pointer;
+  width: 100px;
+}
+
+.daily-sign-button:hover {
+  color: #fff;
+  background-position: right -510px;
+}
+
+.daily-sign-button-inner {
+  background: url(https://s2.music.126.net/style/web2/img/button2.png?79145a18e07d666fd1e36a1c68d986e1);
+  background-position: 0 -387px;
+  margin-right: 6px;
+  color: #fff;
+  /* font-weight: bold; */
+  padding-left: 6px;
+  font-size: 12px;
+}
+
+.daily-sign-button-inner:hover {
+  color: #fff;
+  background-position: 0 -469px;
 }
