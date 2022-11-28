@@ -24,7 +24,7 @@ export const getPlaylistDetail = async ({ id, s }: RequestProps) => {
 
 function usePlaylistDetail({ id, s }: RequestProps) {
   const response = useSWR(
-    `/playlist/detail?id=${id}`,
+    `/playlist/detail/${id}`,
     async () => await getPlaylistDetail({ id, s })
   );
   return response;
