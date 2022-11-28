@@ -4,15 +4,13 @@ import useSWR from "swr";
 
 import { PlaylistDetailResponse } from "types";
 
-export const url = `${baseUrl}/playlist/detail`;
-
 type RequestProps = {
   id: number;
   s?: number;
 };
 
 export const getPlaylistDetail = async ({ id, s }: RequestProps) => {
-  const res = await fetch(url + `?id=${id}`, {
+  const res = await fetch(`${baseUrl}/playlist/detail?id=${id}`, {
     method: "POST",
     mode: "cors",
     headers: {
@@ -26,7 +24,7 @@ export const getPlaylistDetail = async ({ id, s }: RequestProps) => {
 
 function usePlaylistDetail({ id, s }: RequestProps) {
   const response = useSWR(
-    id.toString(),
+    `/playlist/detail?id=${id}`,
     async () => await getPlaylistDetail({ id, s })
   );
   return response;
