@@ -18,8 +18,15 @@ export default function App({ Component, pageProps }: AppProps) {
       value={{
         onError(err: Error, key, config) {
           message.error(err.name + err.message);
+          console.log(config)
           if (!router.pathname.includes("error")) {
-            router.push("/error/" + key);
+            router.push({
+              pathname: "/error/" + key,
+              query: {
+                errName: err.name,
+                errMessage: err.message,
+              },
+            });
           }
         },
       }}
