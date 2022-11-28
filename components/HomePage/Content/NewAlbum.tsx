@@ -36,7 +36,7 @@ function NewAlbum() {
             background: "#f5f5f5",
             marginTop: "16px",
             border: "1px solid #d3d3d3",
-            padding: "0px 12px",
+            padding: "0px 16px",
             display: "flex",
             alignItems: "center",
             position: "relative",
@@ -57,7 +57,7 @@ function NewAlbum() {
               <div className={styles["album-mask"]} />
               <MultipleLines
                 lines={1}
-                maxWidth={"110px"}
+                maxWidth={"105px"}
                 style={{
                   fontSize: "12px",
                   marginTop: "3px",
