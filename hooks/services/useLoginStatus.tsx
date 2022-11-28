@@ -29,16 +29,17 @@ type Account = {
 };
 
 export const getLoginStatus = async () => {
-  const res = await fetch(`${baseUrl}/login/status`, {
+  const timestamp = new Date().getTime();
+  const res = await fetch(`${baseUrl}/login/status?timestamp=${timestamp}`, {
     mode: "cors",
     method: "POST",
     credentials: "include",
     headers: {
       "Content-Type": "application/json",
     },
-    // body: JSON.stringify({
-    //   cookie: localStorage.getItem("cookie"),
-    // }),
+    body: JSON.stringify({
+      cookie: localStorage.getItem("cookie"),
+    }),
   });
   const data: LoginStatusResponse = await res.json();
   return data;
