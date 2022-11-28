@@ -5,7 +5,6 @@ import {
 } from "@services/useHotRecommend";
 import { url as newAlbumUrl, getNewAlbum } from "@services/useNewAlbum";
 import Sider from "components/HomePage/Sider";
-import Navbar from "components/Common/Navbar";
 import Banner from "components/HomePage/Banner";
 import Content from "components/HomePage/Content";
 import { NextPage } from "next";
@@ -17,7 +16,6 @@ import { getHotDj } from "@services/useHotDj";
 const Home: NextPage<{ fallback: Promise<any> }> = ({ fallback }) => {
   return (
     <SWRConfig value={{ fallback }}>
-      <Navbar />
       <Banner />
       <Layout>
         <Content />
