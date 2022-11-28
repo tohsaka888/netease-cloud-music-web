@@ -53,12 +53,16 @@
   background-color: #dfdfdf;
 }
 
-.daily-sign-container {
+.sign-background {
   background: url(https://s2.music.126.net/style/web2/img/index/index.png?594364704c1b21e06b59761e91e9648c)
     no-repeat 0 9999px;
   background-position: 0 -270px;
   height: 165px;
   border-bottom: 1px solid #cecece;
+  padding-top: 20px;
+}
+
+.daily-sign-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,4 +127,25 @@
 .daily-sign-button-inner:hover {
   color: #fff;
   background-position: 0 -469px;
+}
+
+.account-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 12px;
+}
+
+.account-info-item {
+  display: flex;
+  flex-direction: column;
+  color: #666;
+  margin-top: 12px;
+}
+
+.account-info-divider {
+  height: 40px;
+  background-color: #e4e4e4;
+  width: 1px;
+  margin-top: 10px;
 }
