@@ -85,6 +85,8 @@ function Navbar() {
     return styles;
   }, [responsive]);
 
+  const router = useRouter();
+
   return (
     <>
       <Layout.Header
@@ -121,6 +123,9 @@ function Navbar() {
               mode={"horizontal"}
               className={"custom-menu"}
               style={{ position: "relative", ...styles.menu }}
+              onClick={(info) => {
+                router.push(info.key);
+              }}
             />
           </div>
           <div style={{ display: "flex", alignItems: "center" }}>
