@@ -4,11 +4,12 @@ import globalStyles from "styles/global.module.css";
 import { useDispatchModalVisible } from "context/LoginModalVisibleProvider";
 import useLoginStatus from "@services/useLoginStatus";
 import Image from "next/image";
+import useAccountInfo from "@services/useAccountInfo";
 
 function SuggestLogin() {
   const setModalVisible = useDispatchModalVisible();
-  const { data: loginStatus } = useLoginStatus();
-  const profile = useMemo(() => loginStatus?.data.profile, [loginStatus]);
+  const { data: accountInfo } = useAccountInfo();
+  const profile = useMemo(() => accountInfo?.profile, [accountInfo]);
 
   if (profile) {
     return (
@@ -19,7 +20,7 @@ function SuggestLogin() {
               width={80}
               height={80}
               src={profile.avatarUrl}
-              alt={profile.userName}
+              alt={profile.nickname}
             />
           </div>
           <div
@@ -37,7 +38,7 @@ function SuggestLogin() {
               {profile.nickname}
             </div>
             <div className={styles.level}>
-              {profile.vipType}
+              {accountInfo?.level}
               <div className={styles["level-right"]} />
             </div>
             <div className={styles["daily-sign-button"]}>
@@ -47,17 +48,23 @@ function SuggestLogin() {
         </div>
         <div className={styles["account-info"]}>
           <div className={styles["account-info-item"]}>
-            <div style={{ fontSize: "20px", marginBottom: "2px" }}>0</div>
+            <div style={{ fontSize: "20px", marginBottom: "2px" }}>
+              {profile.eventCount}
+            </div>
             <div style={{ fontSize: "12px" }}>动态</div>
           </div>
           <div className={styles["account-info-divider"]} />
           <div className={styles["account-info-item"]}>
-            <div style={{ fontSize: "20px", marginBottom: "2px" }}>{0}</div>
+            <div style={{ fontSize: "20px", marginBottom: "2px" }}>
+              {profile.follows}
+            </div>
             <div style={{ fontSize: "12px" }}>关注</div>
           </div>
           <div className={styles["account-info-divider"]} />
           <div className={styles["account-info-item"]}>
-            <div style={{ fontSize: "20px", marginBottom: "2px" }}>{0}</div>
+            <div style={{ fontSize: "20px", marginBottom: "2px" }}>
+              {profile.followeds}
+            </div>
             <div style={{ fontSize: "12px" }}>粉丝</div>
           </div>
         </div>
