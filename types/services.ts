@@ -220,3 +220,10 @@ type UserPoint = {
   status: number;
   blockBalance: number;
 };
+
+export type UserPlaylistResponse = {
+  version: string;
+  more: boolean;
+  playlist: Playlist[];
+  code: number;
+};
