@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react";
 import styles from "./index.module.css";
 
 type Props = {
-  children: string;
+  children: React.ReactNode;
   lines?: number;
   maxWidth: string | number;
 } & HTMLAttributes<HTMLDivElement>;
