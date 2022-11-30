@@ -6,6 +6,7 @@ specifiers:
   '@types/react-dom': 18.0.9
   ahooks: ^3.7.2
   antd: ^5.0.0
+  dayjs: ^1.11.6
   framer-motion: ^7.6.5
   netease-music-player: ^0.1.1
   next: 13.0.5
@@ -19,6 +20,7 @@ specifiers:
 dependencies:
   ahooks: 3.7.2_react@18.2.0
   antd: 5.0.0_biqbaboplfbrettd7655fr4n2y
+  dayjs: 1.11.6
   framer-motion: 7.6.5_biqbaboplfbrettd7655fr4n2y
   netease-music-player: 0.1.1_biqbaboplfbrettd7655fr4n2y
   next: 13.0.5_biqbaboplfbrettd7655fr4n2y
