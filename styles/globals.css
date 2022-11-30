@@ -139,3 +139,21 @@ a {
 .login-modal .ant-modal-close {
   top: 10px !important;
 }
+
+.my-music-menu .ant-menu {
+  background-color: transparent !important;
+}
+
+.my-music-menu {
+  background-color: transparent !important;
+}
+
+.my-music-menu .ant-menu-item {
+  padding: 8px 0px 8px 16px !important;
+  height: max-content !important;
+  white-space: normal !important;
+}
+
+.my-music-menu .ant-menu-item-selected {
+  background-color: #e6e6e6 !important;
+}
