@@ -10,11 +10,11 @@ import useLoginStatus from "@services/useLoginStatus";
 
 const items: ItemType[] = [
   { label: "发现音乐", key: "/" },
-  { label: "我的音乐", key: "/my" },
-  { label: "关注", key: "/friend" },
-  { label: "商城", key: "/shop" },
-  { label: "音乐人", key: "/musician" },
-  { label: "下载客户端", key: "/download" },
+  { label: "我的音乐", key: "my" },
+  { label: "关注", key: "friend" },
+  { label: "商城", key: "shop" },
+  { label: "音乐人", key: "musician" },
+  { label: "下载客户端", key: "download" },
 ];
 
 const subItems: ItemType[] = [
@@ -86,6 +86,7 @@ function Navbar() {
   }, [responsive]);
 
   const router = useRouter();
+  const uid = useMemo(() => loginStatus?.data.profile?.userId, [loginStatus]);
 
   return (
     <>
@@ -124,7 +125,13 @@ function Navbar() {
               className={"custom-menu"}
               style={{ position: "relative", ...styles.menu }}
               onClick={(info) => {
-                router.push(info.key);
+                if (info.key === "my" && uid) {
+                  router.push({
+                    pathname: info.key + "/" + uid.toString(),
+                  });
+                } else {
+                  router.push(info.key);
+                }
               }}
             />
           </div>
@@ -174,23 +181,25 @@ function Navbar() {
       </Layout.Header>
       <div
         style={{
-          height: "35px",
           background: "#C20C0C",
           display: "flex",
           alignItems: "center",
+          height: isHomePage ? "35px" : "5px",
         }}
       >
-        <Menu
-          items={subItems}
-          mode={"horizontal"}
-          className={"custom-sub-menu"}
-          theme={"dark"}
-          defaultSelectedKeys={[isHomePage ? "recommend" : ""]}
-          style={{
-            marginLeft: `calc((100vw - ${styles.container.width}) / 2 + 192px)`,
-            ...styles.submenu,
-          }}
-        />
+        {isHomePage && (
+          <Menu
+            items={subItems}
+            mode={"horizontal"}
+            className={"custom-sub-menu"}
+            theme={"dark"}
+            defaultSelectedKeys={[isHomePage ? "recommend" : ""]}
+            style={{
+              marginLeft: `calc((100vw - ${styles.container.width}) / 2 + 192px)`,
+              ...styles.submenu,
+            }}
+          />
+        )}
       </div>
     </>
   );
