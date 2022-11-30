@@ -101,3 +101,37 @@
   color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
 }
+
+.cover-image-container {
+  position: relative;
+}
+
+.cover-image-mask {
+  position: absolute;
+  background: url(https://s2.music.126.net/style/web2/img/coverall.png?f74622d629f8e02977455b2a3382f34a);
+  width: 208px;
+  height: 208px;
+  background-position: 0 -1285px;
+  top: -4px;
+  left: -4px;
+}
+
+.playlist-tag {
+  width: 54px;
+  height: 24px;
+  background: url(https://s2.music.126.net/style/web2/img/icon.png?2338ee0dbf0fdb085567d7f5ada823a5)
+    no-repeat 0 9999px;
+  background-position: 0 -243px;
+  margin-right: 8px;
+}
+
+.my-play-icon {
+  background: url(https://s2.music.126.net/style/web2/img/button2.png?b34fad4cd1c4fa26fedd2330c1a6c097);
+  background-position: right -428px;
+  height: 31px;
+  width: 61px;
+}
+
+.my-play-icon:hover {
+  background-position: right -510px;
+}
