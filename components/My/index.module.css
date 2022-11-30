@@ -1,0 +1,44 @@
+.sider-container {
+  position: fixed !important;
+  height: calc(100vh - 75px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-left: 1px solid #d3d3d3;
+  background: #fafafa !important;
+  left: calc((100% - 980px) / 2);
+}
+
+.sider-container .ant-layout-sider-children {
+  background: transparent !important;
+}
+
+.sider-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.sider-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%);
+}
+
+.sider-container::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgb(0 0 0 / 0%);
+  background-color: transparent;
+}
+
+.content-container {
+  overflow-y: auto;
+  max-height: calc(100vh - 75px);
+}
+
+.content-main {
+  min-width: 740px;
+  min-height: calc(100vh - 75px);
+  width: 740px;
+  border: 1px solid #d3d3d3;
+  margin-left: calc((100% - 980px) / 2 + 240px);
+  background-color: #fff;
+}
