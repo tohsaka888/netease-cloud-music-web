@@ -186,10 +186,10 @@ export type Playlist = {
   subscribers: Subscriber[];
   subscribed: boolean;
   creator: Creator;
-  tracks: Track[];
+  tracks?: Track[];
   videoIds: null;
   videos: null;
-  trackIds: TrackId[];
+  trackIds?: TrackId[];
   bannedTrackIds: null;
   shareCount: number;
   commentCount: number;
@@ -216,7 +216,7 @@ type TrackId = {
   lr?: number;
 };
 
-type Track = {
+export type Track = {
   name: string;
   id: number;
   pst: number;
@@ -284,14 +284,14 @@ type H3 = {
   size: number;
   vd: number;
 };
-type H = {
+export type H = {
   br: number;
   fid: number;
   size: number;
   vd: number;
   sr: number;
 };
-type Al = {
+export type Al = {
   id: number;
   name: string;
   picUrl: string;
@@ -299,7 +299,7 @@ type Al = {
   pic_str?: string;
   pic: number;
 };
-type Ar = {
+export type Ar = {
   id: number;
   name: string;
   tns: any[];
