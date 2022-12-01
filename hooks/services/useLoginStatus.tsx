@@ -78,7 +78,7 @@ export const getLoginStatus = async () => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      cookie: localStorage.getItem("cookie"),
+      cookie: localStorage.getItem("cookie") || '',
     }),
   });
   const data: LoginStatusResponse = await res.json();
