@@ -1,38 +1,147 @@
 import usePlaylistDetail from "@services/usePlaylistDetail";
-import { Avatar, Button } from "antd";
+import { Avatar, Button, Tag, Typography, Table } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useMemo, useState } from "react";
 import globalStyle from "styles/global.module.css";
 import styles from "./index.module.css";
 import day from "dayjs";
 import {
+  BsArrowDown,
+  BsArrowUp,
   BsCollection,
   BsDownload,
   BsFillChatLeftTextFill,
   BsPlayCircle,
   BsShare,
 } from "react-icons/bs";
+import { ColumnType } from "antd/es/table";
+import { Ar, Track, Al } from "types";
+import NeteaseIcon from "./NeteaseIcons";
+import usePlaylistTracks from "@services/usePlaylistTracks";
+
+const colors = [
+  "magenta",
+  "red",
+  "volcano",
+  "orange",
+  "gold",
+  "lime",
+  "green",
+  "cyan",
+  "blue",
+  "geekblue",
+  "purple",
+];
 
 function PlaylistDetail() {
   const { query } = useRouter();
-  const { data: detail } = usePlaylistDetail({ id: +(query.id as string) });
+  const [pageConfig, setPageConfig] = useState<{
+    page: number;
+    pageSize: number;
+  }>({
+    page: 1,
+    pageSize: 20,
+  });
+  const { data: detail } = usePlaylistDetail({
+    id: +(query.id as string),
+  });
+  const { data: tracks } = usePlaylistTracks({
+    id: +(query.id as string),
+    ...pageConfig,
+  });
+  const [ellipsis, setEllipsis] = useState<boolean>(true);
+  const [isShowEllipsisButton, setIsShowEllipsisButton] =
+    useState<boolean>(false);
+
+  const columns: ColumnType<Track>[] = useMemo(
+    () => [
+      {
+        title: "",
+        dataIndex: "index",
+        key: "index",
+        width: 75,
+        render(_, __, index) {
+          return (
+            <div
+              className={globalStyle["flex-align-center"]}
+              style={{ justifyContent: "space-between", padding: "0px 8px" }}
+            >
+              <div>{index + 1}</div>
+              <NeteaseIcon name="play-small" size={1} />
+            </div>
+          );
+        },
+      },
+      {
+        title: "歌曲标题",
+        dataIndex: ["name"],
+        key: "name",
+        ellipsis: {
+          showTitle: true,
+        },
+        width: 300,
+        render(text, record) {
+          return (
+            <div className={globalStyle["flex-align-center"]}>
+              <div>{text}</div>
+              {record.alia.length !== 0 && (
+                <div style={{ color: "#999" }}>
+                  <span style={{ padding: "0px 4px" }}>-</span>
+                  {record.alia.join("-")}
+                </div>
+              )}
+            </div>
+          );
+        },
+      },
+      {
+        title: "时长",
+        dataIndex: ["dt"],
+        key: "dt",
+        render(text: number) {
+          return day(text).format("mm:ss");
+        },
+        width: 100,
+      },
+      {
+        title: "歌手",
+        dataIndex: ["ar"],
+        key: "ar",
+        render(text: Ar[]) {
+          return text.map((ar) => ar.name).join("/");
+        },
+        width: 110,
+        ellipsis: {
+          showTitle: true,
+        },
+      },
+      {
+        title: "专辑",
+        dataIndex: ["al", "name"],
+        key: "al",
+        width: 150,
+        ellipsis: {
+          showTitle: true,
+        },
+      },
+    ],
+    []
+  );
+
   return (
     <>
-      <div
-        className={globalStyle["flex-align-center"]}
-        style={{ padding: "40px" }}
-      >
+      <div style={{ padding: "40px", display: "flex" }}>
         <div className={styles["cover-image-container"]}>
           <Image
             width={200}
             height={200}
-            src={detail?.playlist.coverImgUrl!}
-            alt={detail?.playlist.coverImgId_str! + "?param=200y200"}
+            src={detail?.playlist.coverImgUrl! + "?param=200y200"}
+            alt={detail?.playlist.id.toString() || ""}
           />
           <div className={styles["cover-image-mask"]} />
         </div>
-        <div style={{ height: "200px", marginLeft: "36px" }}>
+        <div style={{ marginLeft: "36px" }}>
           <div className={globalStyle["flex-align-center"]}>
             <div className={styles["playlist-tag"]} />
             <div style={{ fontSize: "20px" }}>{detail?.playlist.name}</div>
@@ -66,14 +175,6 @@ function PlaylistDetail() {
                 style={{ position: "absolute", left: "12px", top: "9px" }}
               />
               <div style={{ marginLeft: "16px" }}>播放</div>
-              {/* <BsPlus
-                style={{
-                  position: "absolute",
-                  right: "8px",
-                  top: "6px",
-                  fontSize: "20px",
-                }}
-              /> */}
             </Button>
             <Button style={{ marginLeft: "8px" }} disabled>
               <BsCollection
@@ -102,8 +203,117 @@ function PlaylistDetail() {
               </div>
             </Button>
           </div>
+          <div
+            className={globalStyle["flex-align-center"]}
+            style={{ marginTop: "12px" }}
+          >
+            {detail?.playlist.tags.length !== 0 && <div>标签：</div>}
+            {detail?.playlist.tags.length !== 0 &&
+              detail?.playlist.tags.map((tag, idx) => {
+                return (
+                  <Tag color={colors[idx]} key={idx}>
+                    {tag}
+                  </Tag>
+                );
+              })}
+          </div>
+
+          <Typography style={{ marginTop: "8px" }}>
+            <Typography.Paragraph
+              style={{ whiteSpace: "pre-wrap" }}
+              ellipsis={
+                ellipsis
+                  ? {
+                      rows: 3,
+                      onEllipsis() {
+                        setIsShowEllipsisButton(true);
+                      },
+                    }
+                  : false
+              }
+            >
+              {detail?.playlist.description}
+            </Typography.Paragraph>
+          </Typography>
+
+          {isShowEllipsisButton && (
+            <div
+              className={globalStyle["flex-align-center"]}
+              style={{
+                color: "#1890ff",
+                cursor: "pointer",
+                justifyContent: "flex-end",
+              }}
+              onClick={() => {
+                setEllipsis(!ellipsis);
+              }}
+            >
+              {ellipsis ? (
+                <>
+                  <div>展开</div>
+                  <BsArrowDown style={{ paddingTop: "3px" }} />
+                </>
+              ) : (
+                <>
+                  <div>收起</div>
+                  <BsArrowUp style={{ paddingTop: "3px" }} />
+                </>
+              )}
+            </div>
+          )}
         </div>
       </div>
+
+      <div className={styles["playlist-table-title"]}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            marginBottom: "8px",
+          }}
+        >
+          <div style={{ fontSize: "20px" }}>歌曲列表</div>
+          <div
+            style={{ margin: "9px 0 0 20px", fontSize: "10px", color: "#666" }}
+          >
+            {detail?.playlist.trackCount}首歌
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            marginBottom: "8px",
+          }}
+        >
+          播放：
+          <span
+            style={{ color: "#c20c0c", fontWeight: "bold", marginRight: "8px" }}
+          >
+            {detail?.playlist.playCount}
+          </span>
+          次
+        </div>
+      </div>
+      <Table
+        size="small"
+        columns={columns}
+        dataSource={tracks || []}
+        pagination={{
+          ...pageConfig,
+          // size: "default",
+          total: detail?.playlist.trackCount,
+          onChange(page, pageSize) {
+            setPageConfig({ page, pageSize });
+          },
+          showPrevNextJumpers: true,
+          showQuickJumper: true,
+          showSizeChanger: true,
+          showLessItems: true,
+          showTitle: true,
+        }}
+        className={"playlist-table"}
+      />
     </>
   );
 }
