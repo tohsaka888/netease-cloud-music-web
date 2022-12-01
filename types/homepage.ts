@@ -186,10 +186,10 @@ export type Playlist = {
   subscribers: Subscriber[];
   subscribed: boolean;
   creator: Creator;
-  tracks?: Track[];
+  tracks: Track[];
   videoIds: null;
   videos: null;
-  trackIds?: TrackId[];
+  trackIds: TrackId[];
   bannedTrackIds: null;
   shareCount: number;
   commentCount: number;
