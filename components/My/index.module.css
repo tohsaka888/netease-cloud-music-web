@@ -30,13 +30,14 @@
 }
 
 .content-container {
-  overflow-y: auto;
+  overflow-y: overlay;
   max-height: calc(100vh - 75px);
 }
 
 .content-main {
   min-width: 740px;
   min-height: calc(100vh - 75px);
+  height: max-content;
   width: 740px;
   border: 1px solid #d3d3d3;
   margin-left: calc((100% - 980px) / 2 + 240px);

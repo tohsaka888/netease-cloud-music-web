@@ -59,6 +59,7 @@
 .login-modal-body {
   padding: 16px;
   display: flex;
+  
   align-items: center;
   justify-content: space-around;
   min-height: 270px;

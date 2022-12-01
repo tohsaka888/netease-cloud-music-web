@@ -6,6 +6,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #f5f5f5 !important;
   overflow-y: overlay !important;
+  /* filter: grayscale(0.95); */
 }
 
 a {
@@ -156,4 +157,41 @@ a {
 
 .my-music-menu .ant-menu-item-selected {
   background-color: #e6e6e6 !important;
+}
+
+.playlist-table .ant-table-cell {
+  height: 30px !important;
+  padding: 0px 8px !important;
+  font-size: 12px !important;
+  cursor: pointer;
+  font-weight: normal !important;
+}
+
+.playlist-table .ant-table-cell:hover {
+  text-decoration: underline;
+}
+
+.playlist-table .ant-table-thead {
+  height: 36px !important;
+}
+
+.playlist-table .ant-table-thead .ant-table-cell {
+  /* background-color: #f7f7f7 !important; */
+  border-radius: 0px !important;
+  /* border-bottom: 2px solid #cecece !important; */
+  background: url(https://s2.music.126.net/style/web2/img/table.png?397ebc72882b61a3131238998a92bfd3);
+  background-position: 0 0;
+  background-repeat: repeat-x;
+}
+
+.playlist-table .ant-table-row:nth-child(2n-1) {
+  background-color: #f7f7f7;
+}
+
+.playlist-table .ant-table-row:nth-child(2n) {
+  background-color: #fff;
+}
+
+.playlist-table .ant-pagination {
+  padding-right: 8px;
 }
