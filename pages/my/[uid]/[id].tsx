@@ -1,4 +1,5 @@
 import { getPlaylistDetail } from "@services/usePlaylistDetail";
+import { getPlaylistTracks } from "@services/usePlaylistTracks";
 import { Layout } from "antd";
 import Content from "components/My/Content";
 import Sider from "components/My/Sider";
@@ -19,10 +20,12 @@ const MyPlaylist: NextPage<{ fallback: any }> = ({ fallback }) => {
 
 MyPlaylist.getInitialProps = async ({ query }) => {
   const id = query.id as string;
-  const data = await getPlaylistDetail({ id: +id });
+  const detail = await getPlaylistDetail({ id: +id });
+  const tracks = await getPlaylistTracks({ id: +id, page: 1, pageSize: 20 });
   return {
     fallback: {
-      [`/playlist/detail/${id}`]: data,
+      [`/playlist/detail/${id}`]: detail,
+      [`/playlist/track/all?id=${id}&limit=20&offset=0`]: tracks,
     },
   };
 };
