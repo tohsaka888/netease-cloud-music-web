@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import "antd/dist/reset.css";
 import { SWRConfig } from "swr";
-import { FloatButton, message } from "antd";
+import { ConfigProvider, FloatButton, message } from "antd";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { MusicPlayer } from "netease-music-player";
@@ -10,6 +10,7 @@ import LoginModalVisibleProvider from "context/LoginModalVisibleProvider";
 import LoginModal from "components/Common/LoginModal";
 import QrImageProvider from "context/QrImageProvider";
 import Navbar from "components/Common/Navbar";
+import zhCN from "antd/locale/zh_CN";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -38,17 +39,13 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <LoginModalVisibleProvider>
         <QrImageProvider>
-          <Navbar />
-          <Component {...pageProps} />
-          <LoginModal />
+          <ConfigProvider locale={zhCN}>
+            <Navbar />
+            <Component {...pageProps} />
+            <LoginModal />
+          </ConfigProvider>
         </QrImageProvider>
       </LoginModalVisibleProvider>
-
-      <FloatButton.BackTop
-        style={{
-          marginBottom: "32px",
-        }}
-      />
       <MusicPlayer
         name={"Beautiful World (Da Capo Version)"}
         artist={"宇多田ヒカル"}
@@ -75,6 +72,12 @@ export default function App({ Component, pageProps }: AppProps) {
           console.log("share");
         }}
         playlistLength={10}
+      />
+
+      <FloatButton.BackTop
+        style={{
+          marginBottom: "32px",
+        }}
       />
     </SWRConfig>
   );
