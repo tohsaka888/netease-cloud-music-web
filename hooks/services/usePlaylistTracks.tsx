@@ -14,18 +14,22 @@ export const getPlaylistTracks = async ({
   page,
   pageSize,
 }: RequestProps) => {
-  const res = await fetch(`${baseUrl}/playlist/track/all`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    mode: "cors",
-    body: JSON.stringify({
-      id,
-      limit: pageSize,
-      offset: (page - 1) * pageSize,
-    }),
-  });
+  const timestamp = new Date().getTime();
+  const res = await fetch(
+    `${baseUrl}/playlist/track/all?timestamp=${timestamp}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
+      body: JSON.stringify({
+        id,
+        limit: pageSize,
+        offset: (page - 1) * pageSize,
+      }),
+    }
+  );
   const data = await res.json();
   return data.songs;
 };
