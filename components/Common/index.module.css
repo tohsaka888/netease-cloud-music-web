@@ -104,6 +104,7 @@
 
 .cover-image-container {
   position: relative;
+  min-width: 210;
 }
 
 .cover-image-mask {
@@ -134,4 +135,12 @@
 
 .my-play-icon:hover {
   background-position: right -510px;
+}
+
+.playlist-table-title {
+  padding: 0 10px 0 32px;
+  height: 33px;
+  border-bottom: 2px solid #c20c0c;
+  display: flex;
+  justify-content: space-between;
 }
