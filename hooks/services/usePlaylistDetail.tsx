@@ -16,9 +16,14 @@ export const getPlaylistDetail = async ({ id, s }: RequestProps) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ id, s }),
+    body: JSON.stringify({
+      id,
+      s,
+    }),
   });
   const data: PlaylistDetailResponse = await res.json();
+  data.playlist.trackIds = [];
+  // data.playlist.tracks = [];
   return data;
 };
 
