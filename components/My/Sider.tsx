@@ -57,7 +57,7 @@ const Sider = () => {
           width={40}
           height={40}
           src={playlist.coverImgUrl + "?param=40y40"}
-          alt={playlist.coverImgId_str}
+          alt={playlist.id.toString()}
         />
       ),
       key: playlist.id,
