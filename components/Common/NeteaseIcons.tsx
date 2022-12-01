@@ -70,12 +70,13 @@ function NeteaseIcon({ size = 1, name, ...props }: Props) {
         initial={{
           background: `url(${iconPosition[name].background}) no-repeat 0 9999px`,
           backgroundPosition: iconPosition[name].position,
-          opacity: 1,
+          opacity: 0.5,
           width: iconPosition[name].width,
           height: iconPosition[name].height,
         }}
         whileHover={{
           backgroundPosition: iconPosition[name].activePosition,
+          opacity: 1,
         }}
         transition={{
           backgroundPosition: {
