@@ -142,7 +142,7 @@ function useGraphData() {
             return {
               name: ar.name,
               type: "歌手",
-              id: ar.id.toString() + id,
+              id: ar.id.toString(),
               hasMore: false,
               direction: "inside" as "inside",
             };
@@ -157,7 +157,7 @@ function useGraphData() {
           },
           ...song!.ar.map((ar) => {
             return {
-              fromId: ar.id.toString() + id,
+              fromId: ar.id.toString(),
               toId: id,
               description: "包含",
               id: ar.id + id,
