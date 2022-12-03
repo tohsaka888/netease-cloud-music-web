@@ -11,6 +11,7 @@ import LoginModal from "components/Common/LoginModal";
 import QrImageProvider from "context/QrImageProvider";
 import Navbar from "components/Common/Navbar";
 import zhCN from "antd/locale/zh_CN";
+import "react-knowledge-graph/KnowledgeGraph/index.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
