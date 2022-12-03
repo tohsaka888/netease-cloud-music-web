@@ -9,7 +9,7 @@ function Content() {
   return (
     <Layout.Content className={styles["content-container"]}>
       <div className={styles["content-main"]}>
-        <PlaylistDetail key={query.id as string} />
+        <PlaylistDetail />
       </div>
     </Layout.Content>
   );
