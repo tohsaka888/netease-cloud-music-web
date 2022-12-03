@@ -174,7 +174,7 @@ function PlaylistDetail() {
 
           <Button
             type={"primary"}
-            style={{ position: "absolute", top: "75px", right: "10px" }}
+            style={{ position: "absolute", top: "75px", right: "20px" }}
             onClick={() => setOpen(true)}
           >
             <BsFillPinMapFill
@@ -194,6 +194,9 @@ function PlaylistDetail() {
               basicDistence={80}
               explore={explore}
               enableAutoExplore={true}
+              // edgeConfig={{
+              //   flyLineEffect: "arrow",
+              // }}
               node={{
                 id: query.id!.toString(),
                 name: detail!.playlist.name,
