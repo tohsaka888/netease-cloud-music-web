@@ -17,7 +17,7 @@ import {
   BsShare,
 } from "react-icons/bs";
 import { ColumnType } from "antd/es/table";
-import { Ar, Track, Al } from "types";
+import { Ar, Track } from "types";
 import NeteaseIcon from "./NeteaseIcons";
 import usePlaylistTracks from "@services/usePlaylistTracks";
 import { KnowledgeGraph } from "react-knowledge-graph";
@@ -193,10 +193,6 @@ function PlaylistDetail() {
             <KnowledgeGraph
               basicDistence={80}
               explore={explore}
-              enableAutoExplore={true}
-              // edgeConfig={{
-              //   flyLineEffect: "arrow",
-              // }}
               node={{
                 id: query.id!.toString(),
                 name: detail!.playlist.name,
@@ -205,12 +201,12 @@ function PlaylistDetail() {
                 direction: "root",
               }}
               position={{
-                x: 600,
-                y: 260,
+                x: 590,
+                y: 270,
               }}
               width={"100%"}
               height={580}
-              showFilter={false}
+              showFilter={true}
               showNodeMenu={true}
               typeConfig={{
                 ["收藏者"]: {
@@ -373,6 +369,7 @@ function PlaylistDetail() {
         size="small"
         columns={columns}
         dataSource={tracks || []}
+        rowKey={(record) => record.id}
         pagination={{
           ...pageConfig,
           // size: "default",
