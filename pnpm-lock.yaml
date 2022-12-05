@@ -13,7 +13,7 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   react-icons: ^4.6.0
-  react-knowledge-graph: ^0.3.8
+  react-knowledge-graph: 0.3.8-fix2
   swr: ^1.3.0
   typehole: ^1.7.0
   typescript: 4.9.3
@@ -28,7 +28,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.6.0_react@18.2.0
-  react-knowledge-graph: 0.3.8_cn3ejhfta5lq2dae4xucvtkwvu
+  react-knowledge-graph: 0.3.8-fix2_yqqa5ithnjtlkxisuaub7c4kpa
   swr: 1.3.0_react@18.2.0
   typescript: 4.9.3
 
@@ -1565,8 +1565,8 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: false
 
-  /react-knowledge-graph/0.3.8_cn3ejhfta5lq2dae4xucvtkwvu:
-    resolution: {integrity: sha512-tqx0szsuUiJneP+3me4qNyqlYikkHiMg0hoCtNCTje1Q+NdYxaj39l0S0bgG/yH9uLfJ6JDQ3UBfvSERKa/qBw==}
+  /react-knowledge-graph/0.3.8-fix2_yqqa5ithnjtlkxisuaub7c4kpa:
+    resolution: {integrity: sha512-yJ1LTCPXhuBjHgOcaUEJxwG14l1zaHdnHCe2qdmg9WeM+9xl0RPNbONDqJ9IyA9Q+n3j8Q2gjGenN40KkK3LmQ==}
     dependencies:
       '@reduxjs/toolkit': 1.9.1_k4ae6lp43ej6mezo3ztvx6pykq
       framer-motion: 7.6.18_biqbaboplfbrettd7655fr4n2y
