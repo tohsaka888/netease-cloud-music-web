@@ -16,7 +16,7 @@ specifiers:
   react-knowledge-graph: 0.3.8-fix2
   swr: ^1.3.0
   typehole: ^1.7.0
-  typescript: 4.9.3
+  typescript: 4.9.4
 
 dependencies:
   ahooks: 3.7.2_react@18.2.0
@@ -30,7 +30,7 @@ dependencies:
   react-icons: 4.6.0_react@18.2.0
   react-knowledge-graph: 0.3.8-fix2_yqqa5ithnjtlkxisuaub7c4kpa
   swr: 1.3.0_react@18.2.0
-  typescript: 4.9.3
+  typescript: 4.9.4
 
 devDependencies:
   '@types/node': 18.11.12
@@ -1775,8 +1775,8 @@ packages:
       - encoding
     dev: true
 
-  /typescript/4.9.3:
-    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
+  /typescript/4.9.4:
+    resolution: {integrity: sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: false
