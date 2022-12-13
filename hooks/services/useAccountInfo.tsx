@@ -31,7 +31,7 @@ export const getAccountInfo = async (uid: Key) => {
 
 function useAccountInfo() {
   const { data: loginStatus } = useLoginStatus();
-  const uid = loginStatus?.data.account.id;
+  const uid = loginStatus?.data.profile?.userId;
   const response = useSWR(uid ? "accountInfo" : null, () => {
     return getAccountInfo(uid!);
   });
