@@ -58,8 +58,8 @@ function useQrCode({ children }: Props) {
 
   /**
    * fetch qr key
-   * can not use swr to cache the result
-   * @date 11/27/2022 - 12:43:03 PM
+   * @date 12/14/2022 - 12:14:07 PM
+   * @author tohsaka888
    *
    * @type {*}
    */
