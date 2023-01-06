@@ -36,9 +36,11 @@ export const getPlaylistTracks = async ({
 
 function usePlaylistTracks(props: RequestProps) {
   const response = useSWR<Track[]>(
-    `/playlist/track/all?id=${props.id}&limit=${props.pageSize}&offset=${
-      (props.page - 1) * props.pageSize
-    }`,
+    props.id
+      ? `/playlist/track/all?id=${props.id}&limit=${props.pageSize}&offset=${
+          (props.page - 1) * props.pageSize
+        }`
+      : null,
     () => getPlaylistTracks(props)
   );
   return response;

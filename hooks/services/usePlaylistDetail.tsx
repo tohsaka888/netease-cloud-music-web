@@ -22,14 +22,17 @@ export const getPlaylistDetail = async ({ id, s }: RequestProps) => {
     }),
   });
   const data: PlaylistDetailResponse = await res.json();
-  data.playlist.trackIds = [];
+  if (data) {
+    data.playlist.trackIds = [];
+  }
+
   // data.playlist.tracks = [];
   return data;
 };
 
 function usePlaylistDetail({ id, s }: RequestProps) {
   const response = useSWR(
-    `/playlist/detail/${id}`,
+    id ? `/playlist/detail/${id}` : null,
     async () => await getPlaylistDetail({ id, s })
   );
   return response;
