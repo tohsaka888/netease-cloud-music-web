@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./index.module.css";
 import globalStyles from "styles/global.module.css";
 import MultipleLines from "./MultipleLines";
+import { useRouter } from "next/router";
 
 type Props = {
   playcount: number;
@@ -12,6 +13,8 @@ type Props = {
 };
 
 function Playlist({ playcount, picUrl, name, id }: Props) {
+  const { push } = useRouter();
+
   const formattedCount = useMemo(() => {
     if (playcount >= 10000) {
       return `${(playcount / 10000).toFixed(0)}万`;
@@ -29,6 +32,7 @@ function Playlist({ playcount, picUrl, name, id }: Props) {
         position: "relative",
       }}
       key={id}
+      onClick={() => push(`/playlist/${id}`)}
     >
       <Image src={picUrl} alt={picUrl} width={140} height={140} priority />
       <div className={styles["playlist-mask"]} />
