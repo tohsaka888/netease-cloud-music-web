@@ -9,7 +9,7 @@ function Content() {
   return (
     <Layout.Content className={styles["content-container"]}>
       <div className={styles["content-main"]}>
-        <PlaylistDetail />
+        <PlaylistDetail infoStyle={{ padding: "40px" }} />
       </div>
     </Layout.Content>
   );
