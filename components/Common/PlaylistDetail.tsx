@@ -1,8 +1,8 @@
 import usePlaylistDetail from "@services/usePlaylistDetail";
-import { Avatar, Button, Tag, Typography, Table, Modal } from "antd";
+import { Avatar, Button, Tag, Typography, Table, Modal, Spin } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useMemo, useState } from "react";
+import React, { CSSProperties, useMemo, useState } from "react";
 import globalStyle from "styles/global.module.css";
 import styles from "./index.module.css";
 import day from "dayjs";
@@ -37,7 +37,11 @@ const colors = [
   "purple",
 ];
 
-function PlaylistDetail() {
+type Props = {
+  infoStyle?: CSSProperties;
+};
+
+function PlaylistDetail({ infoStyle }: Props) {
   const { query } = useRouter();
   const [pageConfig, setPageConfig] = useState<{
     page: number;
@@ -135,258 +139,284 @@ function PlaylistDetail() {
     []
   );
 
-  return (
-    <>
-      <div style={{ padding: "40px", display: "flex", position: "relative" }}>
-        <div className={styles["cover-image-container"]}>
-          <Image
-            width={200}
-            height={200}
-            src={detail?.playlist.coverImgUrl! + "?param=200y200"}
-            alt={detail?.playlist.id.toString() || ""}
-          />
-          <div className={styles["cover-image-mask"]} />
-        </div>
-        <div style={{ marginLeft: "36px" }}>
-          <div className={globalStyle["flex-align-center"]}>
-            <div className={styles["playlist-tag"]} />
-            <div style={{ fontSize: "20px" }}>{detail?.playlist.name}</div>
-          </div>
-
-          <div
-            className={globalStyle["flex-align-center"]}
-            style={{ marginTop: "8px" }}
-          >
-            <Avatar
-              src={detail?.playlist.creator.avatarUrl}
-              size={38}
-              style={{ border: "1px sold #dfdfdf" }}
+  if (detail) {
+    return (
+      <>
+        <div
+          style={{
+            padding: "40px 0px",
+            display: "flex",
+            position: "relative",
+            maxWidth: "100%",
+            ...infoStyle,
+          }}
+        >
+          <div className={styles["cover-image-container"]}>
+            <Image
+              width={200}
+              height={200}
+              src={detail?.playlist.coverImgUrl! + "?param=200y200"}
+              alt={detail?.playlist.id.toString() || ""}
             />
-            <div
-              style={{ fontSize: "10px", color: "#0c73c2", marginLeft: "8px" }}
-            >
-              {detail?.playlist.creator.nickname}
+            <div className={styles["cover-image-mask"]} />
+          </div>
+          <div style={{ marginLeft: "36px", flex: 1 }}>
+            <div className={globalStyle["flex-align-center"]}>
+              <div className={styles["playlist-tag"]} />
+              <div style={{ fontSize: "20px" }}>{detail?.playlist.name}</div>
             </div>
-            <div style={{ fontSize: "10px", color: "#999", marginLeft: "8px" }}>
-              {day(detail?.playlist.createTime!).format("YYYY-MM-DD")} 创建
-            </div>
-          </div>
 
-          <Button
-            type={"primary"}
-            style={{ position: "absolute", top: "75px", right: "20px" }}
-            onClick={() => setOpen(true)}
-          >
-            <BsFillPinMapFill
-              style={{ position: "absolute", left: "12px", top: "7px" }}
-            />
-            <div style={{ marginLeft: "16px" }}>图谱分析</div>
-          </Button>
-
-          <Modal
-            open={open}
-            title={"图谱分析"}
-            width={1200}
-            onCancel={() => setOpen(false)}
-            footer={null}
-          >
-            <KnowledgeGraph
-              basicDistence={80}
-              explore={explore}
-              node={{
-                id: query.id!.toString(),
-                name: detail!.playlist.name,
-                type: "歌单",
-                hasMore: true,
-                direction: "root",
-              }}
-              position={{
-                x: 590,
-                y: 270,
-              }}
-              width={"100%"}
-              height={580}
-              showFilter={true}
-              showNodeMenu={true}
-              typeConfig={{
-                ["收藏者"]: {
-                  radius: 18,
-                  typeSize: 8,
-                  nameSize: 8,
-                  nameColor: "#666",
-                  fill: "#89e8e6",
-                  hoverStyle: {
-                    fill: "#30e4e1",
-                  },
-                },
-                ["创建者"]: {
-                  radius: 22,
-                  fill: "#d389e8",
-                  hoverStyle: {
-                    fill: "#b130e4",
-                  },
-                },
-                ["歌曲"]: {
-                  fill: "#e8a189",
-                  hoverStyle: {
-                    fill: "#e46930",
-                  },
-                },
-              }}
-            />
-          </Modal>
-
-          <div
-            style={{ marginTop: "8px" }}
-            className={globalStyle["flex-align-center"]}
-          >
-            <Button type={"primary"} style={{ position: "relative" }}>
-              <BsPlayCircle
-                style={{ position: "absolute", left: "12px", top: "9px" }}
-              />
-              <div style={{ marginLeft: "16px" }}>播放</div>
-            </Button>
-            <Button style={{ marginLeft: "8px" }} disabled>
-              <BsCollection
-                style={{ position: "absolute", left: "12px", top: "9px" }}
-              />
-              <div style={{ marginLeft: "16px" }}>收藏</div>
-            </Button>
-            <Button style={{ marginLeft: "8px" }}>
-              <BsShare
-                style={{ position: "absolute", left: "12px", top: "9px" }}
-              />
-              <div style={{ marginLeft: "16px" }}>分享</div>
-            </Button>
-            <Button style={{ marginLeft: "8px" }}>
-              <BsDownload
-                style={{ position: "absolute", left: "12px", top: "9px" }}
-              />
-              <div style={{ marginLeft: "16px" }}>下载</div>
-            </Button>
-            <Button style={{ marginLeft: "8px" }}>
-              <BsFillChatLeftTextFill
-                style={{ position: "absolute", left: "12px", top: "9px" }}
-              />
-              <div style={{ marginLeft: "16px" }}>
-                评论 {"(" + detail?.playlist.commentCount + ")"}
-              </div>
-            </Button>
-          </div>
-          <div
-            className={globalStyle["flex-align-center"]}
-            style={{ marginTop: "12px" }}
-          >
-            {detail?.playlist.tags.length !== 0 && <div>标签：</div>}
-            {detail?.playlist.tags.length !== 0 &&
-              detail?.playlist.tags.map((tag, idx) => {
-                return (
-                  <Tag color={colors[idx]} key={idx}>
-                    {tag}
-                  </Tag>
-                );
-              })}
-          </div>
-
-          <Typography style={{ marginTop: "8px" }}>
-            <Typography.Paragraph
-              style={{ whiteSpace: "pre-wrap" }}
-              ellipsis={
-                ellipsis
-                  ? {
-                      rows: 3,
-                      onEllipsis() {
-                        setIsShowEllipsisButton(true);
-                      },
-                    }
-                  : false
-              }
-            >
-              {detail?.playlist.description}
-            </Typography.Paragraph>
-          </Typography>
-
-          {isShowEllipsisButton && (
             <div
               className={globalStyle["flex-align-center"]}
-              style={{
-                color: "#1890ff",
-                cursor: "pointer",
-                justifyContent: "flex-end",
-              }}
-              onClick={() => {
-                setEllipsis(!ellipsis);
-              }}
+              style={{ marginTop: "8px" }}
             >
-              {ellipsis ? (
-                <>
-                  <div>展开</div>
-                  <BsArrowDown style={{ paddingTop: "3px" }} />
-                </>
-              ) : (
-                <>
-                  <div>收起</div>
-                  <BsArrowUp style={{ paddingTop: "3px" }} />
-                </>
-              )}
+              <Avatar
+                src={detail?.playlist.creator.avatarUrl}
+                size={38}
+                style={{ border: "1px sold #dfdfdf" }}
+              />
+              <div
+                style={{
+                  fontSize: "10px",
+                  color: "#0c73c2",
+                  marginLeft: "8px",
+                }}
+              >
+                {detail?.playlist.creator.nickname}
+              </div>
+              <div
+                style={{ fontSize: "10px", color: "#999", marginLeft: "8px" }}
+              >
+                {day(detail?.playlist.createTime!).format("YYYY-MM-DD")} 创建
+              </div>
             </div>
-          )}
-        </div>
-      </div>
 
-      <div className={styles["playlist-table-title"]}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            marginBottom: "8px",
-          }}
-        >
-          <div style={{ fontSize: "20px" }}>歌曲列表</div>
-          <div
-            style={{ margin: "9px 0 0 20px", fontSize: "10px", color: "#666" }}
-          >
-            {detail?.playlist.trackCount}首歌
+            <Button
+              type={"primary"}
+              style={{ position: "absolute", top: "75px", right: "20px" }}
+              onClick={() => setOpen(true)}
+            >
+              <BsFillPinMapFill
+                style={{ position: "absolute", left: "12px", top: "7px" }}
+              />
+              <div style={{ marginLeft: "16px" }}>图谱分析</div>
+            </Button>
+
+            <Modal
+              open={open}
+              title={"图谱分析"}
+              width={1200}
+              onCancel={() => setOpen(false)}
+              footer={null}
+            >
+              <KnowledgeGraph
+                basicDistence={80}
+                explore={explore}
+                node={{
+                  id: query.id?.toString() || "",
+                  name: detail?.playlist.name || "",
+                  type: "歌单",
+                  hasMore: true,
+                  direction: "root",
+                }}
+                position={{
+                  x: 590,
+                  y: 270,
+                }}
+                width={"100%"}
+                height={580}
+                showFilter={true}
+                showNodeMenu={true}
+                typeConfig={{
+                  ["收藏者"]: {
+                    radius: 18,
+                    typeSize: 8,
+                    nameSize: 8,
+                    nameColor: "#666",
+                    fill: "#89e8e6",
+                    hoverStyle: {
+                      fill: "#30e4e1",
+                    },
+                  },
+                  ["创建者"]: {
+                    radius: 22,
+                    fill: "#d389e8",
+                    hoverStyle: {
+                      fill: "#b130e4",
+                    },
+                  },
+                  ["歌曲"]: {
+                    fill: "#e8a189",
+                    hoverStyle: {
+                      fill: "#e46930",
+                    },
+                  },
+                }}
+              />
+            </Modal>
+
+            <div
+              style={{ marginTop: "8px" }}
+              className={globalStyle["flex-align-center"]}
+            >
+              <Button type={"primary"} style={{ position: "relative" }}>
+                <BsPlayCircle
+                  style={{ position: "absolute", left: "12px", top: "9px" }}
+                />
+                <div style={{ marginLeft: "16px" }}>播放</div>
+              </Button>
+              <Button style={{ marginLeft: "8px" }} disabled>
+                <BsCollection
+                  style={{ position: "absolute", left: "12px", top: "9px" }}
+                />
+                <div style={{ marginLeft: "16px" }}>收藏</div>
+              </Button>
+              <Button style={{ marginLeft: "8px" }}>
+                <BsShare
+                  style={{ position: "absolute", left: "12px", top: "9px" }}
+                />
+                <div style={{ marginLeft: "16px" }}>分享</div>
+              </Button>
+              <Button style={{ marginLeft: "8px" }}>
+                <BsDownload
+                  style={{ position: "absolute", left: "12px", top: "9px" }}
+                />
+                <div style={{ marginLeft: "16px" }}>下载</div>
+              </Button>
+              <Button style={{ marginLeft: "8px" }}>
+                <BsFillChatLeftTextFill
+                  style={{ position: "absolute", left: "12px", top: "9px" }}
+                />
+                <div style={{ marginLeft: "16px" }}>
+                  评论 {"(" + detail?.playlist.commentCount + ")"}
+                </div>
+              </Button>
+            </div>
+            <div
+              className={globalStyle["flex-align-center"]}
+              style={{ marginTop: "12px" }}
+            >
+              {detail?.playlist.tags.length !== 0 && <div>标签：</div>}
+              {detail?.playlist.tags.length !== 0 &&
+                detail?.playlist.tags.map((tag, idx) => {
+                  return (
+                    <Tag color={colors[idx]} key={idx}>
+                      {tag}
+                    </Tag>
+                  );
+                })}
+            </div>
+
+            <Typography style={{ marginTop: "8px" }}>
+              <Typography.Paragraph
+                style={{ whiteSpace: "pre-wrap" }}
+                ellipsis={
+                  ellipsis
+                    ? {
+                        rows: 3,
+                        onEllipsis() {
+                          setIsShowEllipsisButton(true);
+                        },
+                      }
+                    : false
+                }
+              >
+                {detail?.playlist.description}
+              </Typography.Paragraph>
+            </Typography>
+
+            {isShowEllipsisButton && (
+              <div
+                className={globalStyle["flex-align-center"]}
+                style={{
+                  color: "#1890ff",
+                  cursor: "pointer",
+                  justifyContent: "flex-end",
+                }}
+                onClick={() => {
+                  setEllipsis(!ellipsis);
+                }}
+              >
+                {ellipsis ? (
+                  <>
+                    <div>展开</div>
+                    <BsArrowDown style={{ paddingTop: "3px" }} />
+                  </>
+                ) : (
+                  <>
+                    <div>收起</div>
+                    <BsArrowUp style={{ paddingTop: "3px" }} />
+                  </>
+                )}
+              </div>
+            )}
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            marginBottom: "8px",
-          }}
-        >
-          播放：
-          <span
-            style={{ color: "#c20c0c", fontWeight: "bold", marginRight: "8px" }}
+
+        <div className={styles["playlist-table-title"]}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-end",
+              marginBottom: "8px",
+            }}
           >
-            {detail?.playlist.playCount}
-          </span>
-          次
+            <div style={{ fontSize: "20px" }}>歌曲列表</div>
+            <div
+              style={{
+                margin: "9px 0 0 20px",
+                fontSize: "10px",
+                color: "#666",
+              }}
+            >
+              {detail?.playlist.trackCount}首歌
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-end",
+              marginBottom: "8px",
+            }}
+          >
+            播放：
+            <span
+              style={{
+                color: "#c20c0c",
+                fontWeight: "bold",
+                marginRight: "8px",
+              }}
+            >
+              {detail?.playlist.playCount}
+            </span>
+            次
+          </div>
         </div>
-      </div>
-      <Table
-        size="small"
-        columns={columns}
-        dataSource={tracks || []}
-        rowKey={(record) => record.id}
-        pagination={{
-          ...pageConfig,
-          // size: "default",
-          total: detail?.playlist.trackCount,
-          onChange(page, pageSize) {
-            setPageConfig({ page, pageSize });
-          },
-          showPrevNextJumpers: true,
-          showQuickJumper: true,
-          showSizeChanger: true,
-          showLessItems: true,
-          showTitle: true,
-        }}
-        className={"playlist-table"}
-      />
-    </>
-  );
+        <Table
+          size="small"
+          columns={columns}
+          dataSource={tracks || []}
+          rowKey={(record) => record.id}
+          pagination={{
+            ...pageConfig,
+            // size: "default",
+            total: detail?.playlist.trackCount,
+            onChange(page, pageSize) {
+              setPageConfig({ page, pageSize });
+            },
+            showPrevNextJumpers: true,
+            showQuickJumper: true,
+            showSizeChanger: true,
+            showLessItems: true,
+            showTitle: true,
+          }}
+          className={"playlist-table"}
+        />
+      </>
+    );
+  } else {
+    return <Spin />;
+  }
 }
 
 export default PlaylistDetail;
