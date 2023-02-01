@@ -7,7 +7,7 @@ specifiers:
   ahooks: ^3.7.2
   antd: ^5.0.0
   dayjs: ^1.11.6
-  framer-motion: ^8.0.0
+  framer-motion: ^9.0.0
   netease-music-player: ^0.1.1
   next: 13.1.6
   react: 18.2.0
@@ -22,7 +22,7 @@ dependencies:
   ahooks: 3.7.2_react@18.2.0
   antd: 5.0.0_biqbaboplfbrettd7655fr4n2y
   dayjs: 1.11.6
-  framer-motion: 8.0.2_biqbaboplfbrettd7655fr4n2y
+  framer-motion: 9.0.0_biqbaboplfbrettd7655fr4n2y
   netease-music-player: 0.1.1_biqbaboplfbrettd7655fr4n2y
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -786,8 +786,8 @@ packages:
       '@emotion/is-prop-valid': 0.8.8
     dev: false
 
-  /framer-motion/8.0.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-xuIiQchVh/cLqUzzu5/8ok4o0nkwYPyIRtkDl8wDvrQUNRhSfRaZu1MMdzN0TjpBtG66oP03PSLO7Qtu1YqPrA==}
+  /framer-motion/8.1.6_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-DvDUgLr2DrVFTaPJsKxNKjbNaM5TioZqg383wMmfHLWSxSMM70X57M+OSO3eln7lu8j/b3PCG1MqfmVncXuipA==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -796,13 +796,13 @@ packages:
       hey-listen: 1.0.8
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      tslib: 2.4.0
+      tslib: 2.4.1
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
     dev: false
 
-  /framer-motion/8.1.6_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-DvDUgLr2DrVFTaPJsKxNKjbNaM5TioZqg383wMmfHLWSxSMM70X57M+OSO3eln7lu8j/b3PCG1MqfmVncXuipA==}
+  /framer-motion/9.0.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-nDLVzUlIUNyxD7SbqWpWKBeK1FIP/mDMFNy4yhXjhaRoyvGPcoe3uGYf0cEti+DG64N99Dzaw5kdmVjsxbwlEA==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
