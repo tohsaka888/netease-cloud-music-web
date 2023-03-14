@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@types/node': 18.15.1
+  '@types/node': 18.15.2
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   ahooks: ^3.7.2
@@ -33,7 +33,7 @@ dependencies:
   typescript: 4.9.5
 
 devDependencies:
-  '@types/node': 18.15.1
+  '@types/node': 18.15.2
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   typehole: 1.7.0
@@ -542,8 +542,8 @@ packages:
     resolution: {integrity: sha512-aLkWa0C0vO5b4Sr798E26QgOkss68Un0bLjs7u9qxzPT5CG+8DuNTffWES58YzJs3hrVAOs1wonycqEBqNJubA==}
     dev: false
 
-  /@types/node/18.15.1:
-    resolution: {integrity: sha512-U2TWca8AeHSmbpi314QBESRk7oPjSZjDsR+c+H4ECC1l+kFgpZf8Ydhv3SJpPy51VyZHHqxlb6mTTqYNNRVAIw==}
+  /@types/node/18.15.2:
+    resolution: {integrity: sha512-sDPHm2wfx2QhrMDK0pOt2J4KLJMAcerqWNvnED0itPRJWvI+bK+uNHzcH1dFsBlf7G3u8tqXmRF3wkvL9yUwMw==}
     dev: true
 
   /@types/prop-types/15.7.5:
