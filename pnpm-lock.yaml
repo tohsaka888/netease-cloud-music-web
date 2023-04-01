@@ -29,8 +29,8 @@ dependencies:
     specifier: ^4.6.0
     version: 4.6.0(react@18.2.0)
   react-knowledge-graph:
-    specifier: 0.3.8-fix5
-    version: 0.3.8-fix5(@types/react-dom@18.0.11)(@types/react@18.0.31)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0)
+    specifier: 0.3.9
+    version: 0.3.9(@types/react-dom@18.0.11)(@types/react@18.0.31)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0)
   swr:
     specifier: ^2.0.0
     version: 2.0.0(react@18.2.0)
@@ -318,17 +318,6 @@ packages:
 
   /@motionone/dom@10.13.1:
     resolution: {integrity: sha512-zjfX+AGMIt/fIqd/SL1Lj93S6AiJsEA3oc5M9VkUr+Gz+juRmYN1vfvZd6MvEkSqEjwPQgcjN7rGZHrDB9APfQ==}
-    dependencies:
-      '@motionone/animation': 10.15.1
-      '@motionone/generators': 10.15.1
-      '@motionone/types': 10.15.1
-      '@motionone/utils': 10.15.1
-      hey-listen: 1.0.8
-      tslib: 2.4.1
-    dev: false
-
-  /@motionone/dom@10.15.3:
-    resolution: {integrity: sha512-FQ7a2zMBXc1UeU8CG9G3yDpst55fbb0+C9A0VGfwOITitBCzigKZnXRgsRSWWR+FW57GSc13eGQxtYB0lKG0Ng==}
     dependencies:
       '@motionone/animation': 10.15.1
       '@motionone/generators': 10.15.1
@@ -796,6 +785,24 @@ packages:
       '@emotion/is-prop-valid': 0.8.8
     dev: false
 
+  /framer-motion@10.8.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-qwvUAIwCc6fEZhg7ST+/z+f7Vt882jJvLiWZUHNdq2oZ/Y7gM6mLlpKi9xQg+pLu6DQVypikcKQ+MKnoFoXAJg==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: 2.4.1
+    optionalDependencies:
+      '@emotion/is-prop-valid': 0.8.8
+    dev: false
+
   /framer-motion@7.6.18(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-+njLqmMZBqf+GpIMRkuC7s9A9KrvOfMXm+B/yscKG+/SKAA+qdQFl/3ACU2tAhN7UFau1HuB/vBa/jrWBKVvDg==}
     peerDependencies:
@@ -809,21 +816,6 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
       style-value-types: 5.1.2
       tslib: 2.4.0
-    optionalDependencies:
-      '@emotion/is-prop-valid': 0.8.8
-    dev: false
-
-  /framer-motion@8.1.6(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-DvDUgLr2DrVFTaPJsKxNKjbNaM5TioZqg383wMmfHLWSxSMM70X57M+OSO3eln7lu8j/b3PCG1MqfmVncXuipA==}
-    peerDependencies:
-      react: ^18.0.0
-      react-dom: ^18.0.0
-    dependencies:
-      '@motionone/dom': 10.15.3
-      hey-listen: 1.0.8
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      tslib: 2.4.1
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
     dev: false
@@ -1560,8 +1552,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-icons@4.7.1(react@18.2.0):
-    resolution: {integrity: sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw==}
+  /react-icons@4.8.0(react@18.2.0):
+    resolution: {integrity: sha512-N6+kOLcihDiAnj5Czu637waJqSnwlMNROzVZMhfX68V/9bu9qHaMIJC4UdozWoOk57gahFCNHwVvWzm0MTzRjg==}
     peerDependencies:
       react: '*'
     dependencies:
@@ -1576,13 +1568,13 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: false
 
-  /react-knowledge-graph@0.3.8-fix5(@types/react-dom@18.0.11)(@types/react@18.0.31)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0):
-    resolution: {integrity: sha512-iKVbLFdbMekVcY2t1tedtyPsTb+WU6bCitc74XBrDs989o+6QUi2DuBp7wTS4safTgs5hfOwu0TR5NB7odk3eQ==}
+  /react-knowledge-graph@0.3.9(@types/react-dom@18.0.11)(@types/react@18.0.31)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0):
+    resolution: {integrity: sha512-e/8GerNsSjZIMyzL0CvudMypfTaGuevQtnk7iqQuL9CRNO4zEbWVzry7jqHAfrKGT99ToG9SWu2JalnQPSgliw==}
     dependencies:
       '@reduxjs/toolkit': 1.9.1(react-redux@8.0.5)(react@18.2.0)
-      framer-motion: 8.1.6(react-dom@18.2.0)(react@18.2.0)
+      framer-motion: 10.8.5(react-dom@18.2.0)(react@18.2.0)
       lodash.uniqby: 4.7.0
-      react-icons: 4.7.1(react@18.2.0)
+      react-icons: 4.8.0(react@18.2.0)
       react-redux: 8.0.5(@types/react-dom@18.0.11)(@types/react@18.0.31)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0)
     transitivePeerDependencies:
       - '@types/react'
