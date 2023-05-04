@@ -1,17 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ],
-  "semanticCommits": "auto",
+  "extends": ["config:base"],
   "packageRules": [
     {
-      "matchDepTypes": [
-        "devDependencies"
-      ],
+      "matchDepTypes": ["devDependencies", "dependencies", "peerDependencies"],
       "automerge": true,
-      "semanticCommits": "enabled",
-      "commitMessagePrefix": "🐳 chore:"
+      "automergeType": "branch",
+      "semanticCommits": "enabled",  
+      "commitMessagePrefix": "🐳 chore:",
+      "schedule": ["before 2am"]
     }
   ]
 }
