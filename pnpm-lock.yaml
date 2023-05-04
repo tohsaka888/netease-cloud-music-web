@@ -39,6 +39,9 @@ dependencies:
     version: 5.0.4
 
 devDependencies:
+  '@swc/helpers':
+    specifier: ^0.5.1
+    version: 0.5.1
   '@types/node':
     specifier: 18.16.3
     version: 18.16.3
@@ -493,6 +496,12 @@ packages:
     dependencies:
       tslib: 2.4.1
     dev: false
+
+  /@swc/helpers@0.5.1:
+    resolution: {integrity: sha512-sJ902EfIzn1Fa+qYmjdQqh8tPsoxyBz+8yBKC2HKUxyezKJFwPGOn7pv4WY6QuQW//ySQi5lJjA/ZT9sNWWNTg==}
+    dependencies:
+      tslib: 2.4.1
+    dev: true
 
   /@types/hoist-non-react-statics@3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
@@ -1743,7 +1752,6 @@ packages:
 
   /tslib@2.4.1:
     resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
-    dev: false
 
   /typehole@1.7.0:
     resolution: {integrity: sha512-61mHxxpmnKlkQeRwON2U23jOt2Om03bQY4gRbJDbi1FUnbwl5Q1aEpbKrYYVPjl5xsEF4uWXBxlE9eRHvcPeBg==}
