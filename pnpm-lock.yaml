@@ -29,8 +29,8 @@ dependencies:
     specifier: ^4.6.0
     version: 4.6.0(react@18.2.0)
   react-knowledge-graph:
-    specifier: 0.3.9
-    version: 0.3.9(@types/react-dom@18.2.3)(@types/react@18.2.2)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0)
+    specifier: 0.3.10
+    version: 0.3.10(@types/react-dom@18.2.3)(@types/react@18.2.2)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0)
   swr:
     specifier: ^2.0.0
     version: 2.0.0(react@18.2.0)
@@ -758,8 +758,8 @@ packages:
       '@emotion/is-prop-valid': 0.8.8
     dev: false
 
-  /framer-motion@10.8.5(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-qwvUAIwCc6fEZhg7ST+/z+f7Vt882jJvLiWZUHNdq2oZ/Y7gM6mLlpKi9xQg+pLu6DQVypikcKQ+MKnoFoXAJg==}
+  /framer-motion@10.12.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-9gLtv8T6dui0tujHROR+VM3kdJyKiFCFiD94IQE+0OuX6LaIyXtdVpviokVdrHSb1giWhmmX4yzoucALMx6mtw==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -1538,11 +1538,11 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: false
 
-  /react-knowledge-graph@0.3.9(@types/react-dom@18.2.3)(@types/react@18.2.2)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0):
-    resolution: {integrity: sha512-e/8GerNsSjZIMyzL0CvudMypfTaGuevQtnk7iqQuL9CRNO4zEbWVzry7jqHAfrKGT99ToG9SWu2JalnQPSgliw==}
+  /react-knowledge-graph@0.3.10(@types/react-dom@18.2.3)(@types/react@18.2.2)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0):
+    resolution: {integrity: sha512-5i9vxKwbuOs+oaCYz9JE0p0ctJV5j7FUkl9jtVWHj1661Tb8I0k1cR4JmpVQ9ZvG8RxZMwec0bS/noTUTIn1aQ==}
     dependencies:
       '@reduxjs/toolkit': 1.9.1(react-redux@8.0.5)(react@18.2.0)
-      framer-motion: 10.8.5(react-dom@18.2.0)(react@18.2.0)
+      framer-motion: 10.12.4(react-dom@18.2.0)(react@18.2.0)
       lodash.uniqby: 4.7.0
       react-icons: 4.8.0(react@18.2.0)
       react-redux: 8.0.5(@types/react-dom@18.2.3)(@types/react@18.2.2)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.0)
