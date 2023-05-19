@@ -48,6 +48,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </QrImageProvider>
       </LoginModalVisibleProvider>
       <MusicPlayer
+        id={'1824020873'}
         name={"Beautiful World (Da Capo Version)"}
         artist={"宇多田ヒカル"}
         url={"https://music.163.com/song/media/outer/url?id=1824020873.mp3"}
@@ -57,7 +58,7 @@ export default function App({ Component, pageProps }: AppProps) {
         onCollect={() => {
           console.log("collected");
         }}
-        onModeChange={(mode) => {
+        onModeChange={(mode: any) => {
           console.log(mode);
         }}
         onPictureInPicture={() => {
