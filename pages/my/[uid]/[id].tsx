@@ -20,8 +20,14 @@ const MyPlaylist: NextPage<{ fallback: any }> = ({ fallback }) => {
 
 MyPlaylist.getInitialProps = async ({ query }) => {
   const id = query.id as string;
-  const detail = await getPlaylistDetail({ id: +id });
-  const tracks = await getPlaylistTracks({ id: +id, page: 1, pageSize: 20 });
+  // const detail = await getPlaylistDetail({ id: +id });
+  // const tracks = await getPlaylistTracks({ id: +id, page: 1, pageSize: 20 });
+  const results = await Promise.all([
+    getPlaylistDetail({ id: +id }),
+    getPlaylistTracks({ id: +id, page: 1, pageSize: 20 }),
+  ]);
+  const detail = results[0];
+  const tracks = results[1];
   return {
     fallback: {
       [`/playlist/detail/${id}`]: detail,
