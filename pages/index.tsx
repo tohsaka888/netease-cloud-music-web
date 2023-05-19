@@ -26,11 +26,18 @@ const Home: NextPage<{ fallback: Promise<any> }> = ({ fallback }) => {
 };
 
 export const getServerSideProps = async () => {
-  const bannerData = await getBanner();
-  const hotRecommendData = await getHotRecommend();
-  const newAlbumData = await getNewAlbum();
-  const hotArtistsData = await getHotArtists();
-  const hotDjData = await getHotDj();
+  const results = await Promise.all([
+    getBanner(),
+    getHotRecommend(),
+    getNewAlbum(),
+    getHotArtists(),
+    getHotDj(),
+  ]);
+  const bannerData = results[0];
+  const hotRecommendData = results[1];
+  const newAlbumData = results[2];
+  const hotArtistsData = results[3];
+  const hotDjData = results[4];
   // const loginStatus = await getLoginStatus();
   return {
     props: {
