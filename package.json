@@ -21,7 +21,7 @@
     "react-icons": "^4.8.0",
     "react-knowledge-graph": "^0.3.11",
     "swr": "^2.1.5",
-    "typescript": "5.3.2"
+    "typescript": "5.3.3"
   },
   "devDependencies": {
     "@types/node": "20.10.3",
