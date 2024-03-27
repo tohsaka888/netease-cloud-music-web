@@ -16,7 +16,7 @@ dependencies:
     version: 1.11.10
   framer-motion:
     specifier: ^11.0.0
-    version: 11.0.20(react-dom@18.2.0)(react@18.2.0)
+    version: 11.0.22(react-dom@18.2.0)(react@18.2.0)
   netease-music-player:
     specifier: ^0.1.3
     version: 0.1.3(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
@@ -787,8 +787,8 @@ packages:
       '@emotion/is-prop-valid': 0.8.8
     dev: false
 
-  /framer-motion@11.0.20(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-YSDmWznt3hpdERosbE0UAPYWoYhTnmQ0J1qWPsgpCia9NgY8Xsz5IpOiUEGGj/nzCAW29fSrWugeLRkdp5de7g==}
+  /framer-motion@11.0.22(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-kWyldNJLyKDvLWjPYFmgngQYLiU8973BtAeVBc83r2cnil/NBUQJb1ff/6/EweNQYb5BW3PaXFjZa4D3pn/W2Q==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0
