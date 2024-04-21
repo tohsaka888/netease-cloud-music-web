@@ -19,7 +19,7 @@ importers:
         version: 1.11.10
       framer-motion:
         specifier: ^11.0.0
-        version: 11.1.5(@emotion/is-prop-valid@1.2.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 11.1.7(@emotion/is-prop-valid@1.2.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       netease-music-player:
         specifier: ^0.1.3
         version: 0.1.3(react-dom@18.2.0(react@18.2.0))(react-is@18.2.0)(react@18.2.0)
@@ -439,8 +439,8 @@ packages:
       react-dom:
         optional: true
 
-  framer-motion@11.1.5:
-    resolution: {integrity: sha512-ogK5fc0GBUT3AjzMXPx7f74m5V1ByRqkKQARBVHpdkYTNDxb/WriANYD+5JBo1wklQQJ1HayDZtmofQLqZFcbw==}
+  framer-motion@11.1.7:
+    resolution: {integrity: sha512-cW11Pu53eDAXUEhv5hEiWuIXWhfkbV32PlgVISn7jRdcAiVrJ1S03YQQ0/DzoswGYYwKi4qYmHHjCzAH52eSdQ==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0
@@ -1364,7 +1364,7 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  framer-motion@11.1.5(@emotion/is-prop-valid@1.2.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  framer-motion@11.1.7(@emotion/is-prop-valid@1.2.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       tslib: 2.6.2
     optionalDependencies:
